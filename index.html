@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDITAR: título y descripción para Google -->
+<title>Octavo Día · Agencia creativa en Lima | Diseño, video, redes y web</title>
+<meta name="description" content="Agencia creativa en Lima con equipo propio: branding, diseño gráfico, producción audiovisual, edición de video, community management y diseño web. Cotiza por WhatsApp.">
+<meta name="theme-color" content="#201E1F">
+<!-- EDITAR: imagen para compartir en redes (1200×630) -->
+<meta property="og:title" content="Octavo Día · Agencia creativa en Lima">
+<meta property="og:description" content="¿Tu marca se quedó quieta? Te la movemos. Diseño, video, redes y web con un solo equipo propio.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="[URL_IMAGEN_OG_1200x630]">
+<!-- EDITAR: favicon con el isotipo "8." oficial -->
+<link rel="icon" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- ============ META PIXEL: pegar aquí el código base (ID: [TU_PIXEL_ID]) ============ -->
+<!-- ============ GOOGLE ANALYTICS 4: pegar aquí gtag.js (ID: [TU_ID_GA4]) ============ -->
+
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* =========================================================
+   1. VARIABLES DE MARCA (ficha Octavo Día)
+   EDITAR colores aquí; el resto del CSS los usa.
+   ========================================================= */
+:root{
+  --od-coral:#FB515A;          /* Coral REC (manual p.21) */
+  --od-negro:#201E1F;          /* Negro Set */
+  --od-crudo:#F3EDE3;          /* Crudo */
+  --od-blanco:#FFFFFF;
+  --od-grafito:#2E2E2E;
+  --od-coral-oscuro:#C8313B;   /* SUPUESTO: coral para texto sobre claro (AA) */
+  --od-coral-hover:#FC6770;    /* SUPUESTO */
+  --od-negro-2:#2A2728;        /* SUPUESTO: superficie sobre negro */
+  --od-crudo-2:#E6DCCB;        /* SUPUESTO */
+  --od-texto-sec-claro:#5C5657;
+  --od-texto-sec-oscuro:#BDB6AA;
+
+  --font-display:"Anton","Oswald","Impact",sans-serif;
+  --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --lh-display:.95;
+  --lh-body:1.55;
+  --fs-body:clamp(1rem,.95rem + .25vw,1.125rem);
+  --fs-hero:clamp(2.9rem,1rem + 9vw,8rem);
+  --fs-h2:clamp(2.25rem,1.4rem + 3.6vw,4.5rem);
+  --fs-h3:clamp(1.5rem,1.2rem + 1.2vw,2.25rem);
+  --fs-eyebrow:.8125rem;
+  --ls-eyebrow:.2em;
+
+  --radius-card:24px;
+  --radius-btn:12px;
+  --radius-pill:999px;
+  --focus-ring:0 0 0 3px var(--od-crudo),0 0 0 6px var(--od-negro);
+  --shadow-float:0 8px 24px rgb(32 30 31 / .18);
+
+  --section-pad:clamp(4rem,2rem + 6vw,8rem);
+  --container-max:1200px;
+  --gutter:clamp(1rem,.5rem + 2.5vw,2.5rem);
+  --tap-min:48px;
+  --header-h:72px;
+
+  --ease-out:cubic-bezier(.22,1,.36,1);
+  --dur-fast:150ms;
+  --dur-base:300ms;
+  --dur-slow:900ms;
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+body{margin:0;background:var(--od-crudo);color:var(--od-negro);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+p{margin:0 0 1em}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:1rem;top:-100px;z-index:100;background:var(--od-crudo);color:var(--od-negro);padding:.75rem 1rem;border-radius:8px;font-weight:700}
+.skip:focus{top:1rem}
+
+.container{width:100%;max-width:var(--container-max);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section-pad);position:relative;overflow:hidden}
+.section--dark{background:var(--od-negro);color:var(--od-crudo)}
+.section--coral{background:var(--od-coral);color:var(--od-negro)}
+
+.display{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:var(--lh-display);margin:0}
+.h2{font-size:var(--fs-h2);margin-bottom:.5em}
+.h3{font-size:var(--fs-h3)}
+.eyebrow{display:flex;align-items:center;gap:.6em;margin:0 0 1.25rem;font-weight:700;font-size:var(--fs-eyebrow);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--od-coral-oscuro)}
+.section--dark .eyebrow{color:var(--od-coral)}
+.section--coral .eyebrow{color:var(--od-negro)}
+.lead{font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);max-width:38ch}
+.section--dark .muted{color:var(--od-texto-sec-oscuro)}
+.muted{color:var(--od-texto-sec-claro)}
+.hl{color:var(--od-coral)}
+.section-head{max-width:760px;margin-bottom:clamp(2rem,1rem + 3vw,3.5rem)}
+
+/* Punto REC */
+.rec{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--od-coral);flex:none}
+.rec--live{animation:rec-blink 1.6s ease-in-out infinite}
+@keyframes rec-blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
+
+/* =========================================================
+   3. BOTONES (texto negro sobre coral = 5,07:1 AA)
+   ========================================================= */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:var(--tap-min);padding:.85em 1.5em;border:2px solid transparent;border-radius:var(--radius-btn);font:700 1rem/1.1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform var(--dur-fast) var(--ease-out),color var(--dur-base) var(--ease-out)}
+.btn:active{transform:scale(.97)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform var(--dur-base) var(--ease-out)}
+.btn:hover::before{transform:scaleX(1)}
+.btn svg{width:1.25em;height:1.25em;flex:none;transition:transform var(--dur-base) var(--ease-out)}
+.btn:hover svg.arrow{transform:translateX(4px)}
+.btn--primary{background:var(--od-coral);color:var(--od-negro)}
+.btn--primary::before{background:var(--od-coral-hover)}
+.btn--ghost{border-color:currentColor;background:transparent;color:inherit}
+.btn--ghost::before{background:var(--od-crudo)}
+.btn--ghost:hover{color:var(--od-negro)}
+.btn--dark{background:var(--od-negro);color:var(--od-crudo)}
+.btn--dark::before{background:var(--od-negro-2)}
+.btn--block{width:100%}
+
+/* =========================================================
+   4. LOGO tipográfico (EDITAR: reemplazar por SVG oficial)
+   Horizontal ≥160 px de ancho · Vertical ≥110 px (manual p.20)
+   ========================================================= */
+.logo{display:inline-grid;grid-template-columns:auto auto;align-items:center;column-gap:.16em;min-width:160px;font:400 30px/1 var(--font-display);text-transform:uppercase;text-decoration:none;color:var(--od-crudo)}
+.logo>span:first-child{white-space:nowrap}
+.logo__dia{color:var(--od-coral)}
+.logo__dot{width:.36em;height:.36em;border-radius:50%;background:var(--od-coral);margin-left:.08em}
+.logo__desc{grid-column:1;justify-self:center;margin-top:.4em;font:700 .24em/1 var(--font-body);letter-spacing:.3em}
+
+.logo-v{display:inline-block;font-family:var(--font-display);text-transform:uppercase;line-height:.9;color:var(--od-crudo);font-size:clamp(4rem,2.5rem + 6vw,7rem)}
+.logo-v__top{display:block}
+.logo-v__bottom{display:flex;align-items:center}
+.logo-v__dia{color:var(--od-coral)}
+.logo-v__dot{width:.3em;height:.3em;border-radius:50%;background:var(--od-coral);margin-left:.18em}
+.logo-v__desc{margin-left:auto;font:700 .1em/1.35 var(--font-body);letter-spacing:.3em;text-align:right}
+
+/* =========================================================
+   5. HEADER (se oculta al bajar, reaparece al subir)
+   ========================================================= */
+.header{position:fixed;inset:0 0 auto;z-index:50;height:var(--header-h);transition:transform var(--dur-base) var(--ease-out),background-color var(--dur-base) var(--ease-out)}
+.header.is-scrolled{background:rgb(32 30 31 / .94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.header.is-hidden{transform:translateY(-100%)}
+.header__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav{display:none}
+.nav a{position:relative;color:var(--od-crudo);text-decoration:none;font-weight:500;padding:.5rem 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:.2rem;height:2px;background:var(--od-coral);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-base) var(--ease-out)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.header .btn{min-height:44px;padding:.6em 1.1em;font-size:.9375rem}
+
+/* =========================================================
+   6. HERO
+   ========================================================= */
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:calc(var(--header-h) + 2rem);padding-bottom:4rem}
+.hero__content{position:relative;z-index:2}
+.hero__rec{display:inline-flex;align-items:center;gap:.6em;margin-bottom:1.5rem;font:700 .8125rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--od-crudo)}
+.hero__rec time{font-variant-numeric:tabular-nums;color:var(--od-texto-sec-oscuro)}
+.hero__title{font-size:var(--fs-hero);margin-bottom:1.5rem}
+.hero__title .line{display:block;overflow:hidden;padding-top:.12em;margin-top:-.12em}
+.hero__title .line>span{display:inline-block}
+.hero__lead{color:var(--od-texto-sec-oscuro);margin-bottom:2rem}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:.75rem}
+/* El 8 gigante (EDITAR: reemplazar el glifo por el SVG oficial del símbolo) */
+.big8{position:absolute;z-index:0;pointer-events:none;will-change:transform}
+.big8 span{display:block;font:400 min(150vw,1300px)/.8 var(--font-display);transform:rotate(-40deg)}
+.hero .big8{right:-45vw;bottom:-25vh;color:var(--od-negro-2)}  /* móvil: 8 sutil para que el texto mantenga contraste */
+
+/* =========================================================
+   7. MARQUESINA DE SERVICIOS
+   ========================================================= */
+.marquee{background:var(--od-coral);color:var(--od-negro);overflow:hidden;padding-block:1rem;border-block:2px solid var(--od-negro)}
+.marquee__track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+.marquee:hover .marquee__track,.marquee.is-paused .marquee__track{animation-play-state:paused}
+.marquee ul{display:flex;align-items:center}
+.marquee li{display:flex;align-items:center;gap:1.25rem;padding-right:1.25rem;font:400 clamp(1.5rem,1.2rem + 1.4vw,2.5rem)/1 var(--font-display);text-transform:uppercase;white-space:nowrap}
+.marquee li .rec{background:var(--od-negro);width:.4em;height:.4em}
+@keyframes marquee{to{transform:translate3d(-50%,0,0)}}
+
+/* =========================================================
+   8. VALORES (Un solo equipo)
+   ========================================================= */
+.values{display:grid;gap:1rem}
+.value{position:relative;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.25rem;align-items:start;padding:1.5rem;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
+.value:hover{transform:translateY(-6px)}
+.value__n{grid-row:span 2;font:400 3.5rem/.85 var(--font-display)}
+.value__t{font-size:1.5rem}
+.value p{margin:0}
+.value--coral{background:var(--od-coral);color:var(--od-negro)}       /* texto negro: AA */
+.value--dark{background:var(--od-negro);color:var(--od-crudo)}
+.value--dark p{color:var(--od-texto-sec-oscuro)}
+.value--line{border-color:var(--od-negro)}
+
+/* =========================================================
+   9. SERVICIOS (filas con barrido coral)
+   ========================================================= */
+.services{border-top:2px solid var(--od-crudo)}
+.service{position:relative;isolation:isolate;display:grid;grid-template-columns:auto 1fr auto;gap:.25rem 1rem;align-items:center;padding:1.5rem .75rem;border-bottom:2px solid var(--od-crudo);text-decoration:none;color:var(--od-crudo);transition:color var(--dur-base) var(--ease-out)}
+.service::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--od-coral);transform:scaleY(0);transform-origin:bottom;transition:transform var(--dur-base) var(--ease-out)}
+.service:hover,.service:focus-visible{color:var(--od-negro)}
+.service:hover::before,.service:focus-visible::before{transform:scaleY(1)}
+.service__n{font:400 1.25rem/1 var(--font-display);color:var(--od-coral);transition:color var(--dur-base)}
+.service:hover .service__n,.service:focus-visible .service__n{color:var(--od-negro)}
+.service__name{font-size:clamp(1.75rem,1.2rem + 2.4vw,3.25rem)}
+.service__desc{grid-column:2;margin:0;font-size:.9375rem;opacity:.85}
+.service__go{grid-row:1 / span 2;grid-column:3;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:2px solid currentColor;transition:transform var(--dur-base) var(--ease-out)}
+.service:hover .service__go{transform:rotate(-45deg)}
+.service__go svg{width:20px;height:20px}
+
+/* =========================================================
+   10. PLANES / PARA QUIÉN
+   ========================================================= */
+.plans{display:grid;gap:1rem}
+.plan{display:flex;flex-direction:column;padding:2rem 1.5rem;border-radius:var(--radius-card);background:var(--od-blanco);color:var(--od-grafito);transition:transform var(--dur-base) var(--ease-out)}
+.plan:hover{transform:translateY(-6px)}
+.plan__badge{align-self:flex-start;margin-bottom:1.25rem;padding:.4em .9em;border-radius:var(--radius-pill);background:var(--od-negro);color:var(--od-crudo);font:700 .75rem/1 var(--font-body);letter-spacing:.15em;text-transform:uppercase}
+.plan .h3{color:var(--od-negro);margin-bottom:1rem}
+.plan__label{margin:1rem 0 .25rem;font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--od-coral-oscuro)}
+.plan__quote{font-size:1.0625rem;margin:0}
+.plan__price{margin:1.5rem 0;font-weight:700;color:var(--od-negro)}
+.plan .btn{margin-top:auto}
+.plan--featured{background:var(--od-negro);color:var(--od-crudo)}
+.plan--featured .h3{color:var(--od-crudo)}
+.plan--featured .plan__label{color:var(--od-coral)}
+.plan--featured .plan__price{color:var(--od-crudo)}
+.plan--featured .plan__badge{background:var(--od-coral);color:var(--od-negro)}
+
+/* =========================================================
+   11. CASOS / PRUEBA SOCIAL (espacios para contenido real)
+   ========================================================= */
+.cases{display:grid;gap:1rem}
+.case{position:relative;overflow:hidden;border-radius:var(--radius-card);aspect-ratio:4/5;background:var(--od-negro-2);text-decoration:none;color:var(--od-crudo)}
+.case__media{position:absolute;inset:0;transition:transform .8s var(--ease-out)}
+.case:hover .case__media{transform:scale(1.06)}
+/* Placeholders con luz cálida (como las referencias del manual). EDITAR: cambiar por <img loading="lazy"> */
+.case__media--a{background:radial-gradient(circle at 70% 25%,#f6b98a 0,#b8563c 12%,transparent 40%),#1e1a1b}
+.case__media--b{background:radial-gradient(circle at 35% 40%,#f7e6cf 0,#d9c2a3 25%,transparent 60%),#c9b89f}
+.case__media--c{background:radial-gradient(circle at 75% 20%,#ff5a60 0,#6b1f27 20%,transparent 45%),#2a2527}
+.case__info{position:absolute;left:1rem;right:1rem;bottom:1rem;padding:1rem;border-radius:16px;background:rgb(32 30 31 / .88)}
+.case__info strong{display:block;font:400 1.5rem/1 var(--font-display);text-transform:uppercase;margin-bottom:.35rem}
+.case__info span{font-size:.875rem;color:var(--od-texto-sec-oscuro)}
+.quote{margin:2.5rem 0 0;padding:2rem 1.5rem;border-radius:var(--radius-card);border:2px solid var(--od-negro-2)}
+.quote blockquote{margin:0 0 1rem;font:400 clamp(1.5rem,1.1rem + 1.6vw,2.5rem)/1.05 var(--font-display);text-transform:uppercase}
+.quote figcaption{color:var(--od-texto-sec-oscuro)}
+
+/* =========================================================
+   12. PREGUNTAS FRECUENTES
+   ========================================================= */
+.faq{max-width:860px}
+.faq details{border-bottom:2px solid var(--od-negro)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:var(--tap-min);padding:1.25rem 0;cursor:pointer;list-style:none;font:700 1.125rem/1.3 var(--font-body)}
+.faq summary::-webkit-details-marker{display:none}
+.faq__icon{position:relative;flex:none;width:36px;height:36px;border-radius:50%;background:var(--od-negro);transition:transform var(--dur-base) var(--ease-out)}
+.faq__icon::before,.faq__icon::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--od-crudo);transform:translate(-50%,-50%)}
+.faq__icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] .faq__icon{transform:rotate(45deg);background:var(--od-coral-oscuro)}
+.faq__a{padding-bottom:1.5rem;max-width:65ch;color:var(--od-texto-sec-claro)}
+.faq__a p:last-child{margin:0}
+
+/* =========================================================
+   13. CTA FINAL + FORMULARIO (abre WhatsApp, no guarda datos)
+   ========================================================= */
+.contact{display:grid;gap:2.5rem}
+.contact .h2{font-size:clamp(2.75rem,1.5rem + 5vw,6rem)}
+.form{display:grid;gap:1rem;padding:1.5rem;border-radius:var(--radius-card);background:var(--od-crudo)}
+.field{display:grid;gap:.4rem}
+.field label{font-weight:700;font-size:.9375rem}
+.field input,.field select,.field textarea{width:100%;min-height:var(--tap-min);padding:.75rem 1rem;border:2px solid var(--od-negro);border-radius:12px;background:var(--od-blanco);color:var(--od-negro);font:400 1rem/1.4 var(--font-body)}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{box-shadow:0 0 0 3px var(--od-coral-oscuro)}
+.form__note{margin:0;font-size:.8125rem;color:var(--od-texto-sec-claro)}
+
+/* =========================================================
+   14. FOOTER
+   ========================================================= */
+.footer{padding-block:4rem 7rem}
+.footer .big8{right:-60vw;top:-10%;color:var(--od-negro-2)}
+.footer__grid{position:relative;z-index:1;display:grid;gap:2.5rem}
+.footer ul{display:grid;gap:.5rem}
+.footer a{text-decoration:none;color:var(--od-texto-sec-oscuro);transition:color var(--dur-fast)}
+.footer a:hover{color:var(--od-crudo)}
+.footer h2{margin:0 0 1rem;font:700 .75rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--od-coral)}
+.footer__legal{position:relative;z-index:1;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--od-negro-2);display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-size:.875rem;color:var(--od-texto-sec-oscuro)}
+
+/* =========================================================
+   15. CTA FIJO (barra en móvil, píldora flotante en escritorio)
+   ========================================================= */
+.sticky-cta{position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:40;transform:translate3d(0,140%,0);transition:transform var(--dur-base) var(--ease-out)}
+.sticky-cta.is-visible{transform:none}
+.sticky-cta .btn{width:100%;box-shadow:var(--shadow-float)}
+
+/* =========================================================
+   16. ANIMACIONES DE ENTRADA (solo si hay JS)
+   ========================================================= */
+.js .reveal{opacity:0;transform:translate3d(0,32px,0);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);transition-delay:calc(var(--i,0) * 90ms)}
+.js .reveal.is-in{opacity:1;transform:none}
+.js .hero__title .line>span{transform:translate3d(0,110%,0);transition:transform var(--dur-slow) var(--ease-out);transition-delay:calc(var(--i,0) * 110ms + 150ms)}
+.js.is-loaded .hero__title .line>span{transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal,.js .hero__title .line>span{opacity:1;transform:none}
+}
+
+/* =========================================================
+   17. TABLET ≥ 768 px
+   ========================================================= */
+@media (min-width:768px){
+  .values{grid-template-columns:repeat(2,1fr)}
+  .value:last-child{grid-column:span 2}
+  .plans{grid-template-columns:repeat(2,1fr)}
+  .plans .plan:last-child{grid-column:span 2}
+  .cases{grid-template-columns:repeat(3,1fr)}
+  .footer__grid{grid-template-columns:2fr 1fr 1fr}
+  .form{padding:2rem;grid-template-columns:1fr 1fr}
+  .form .field--full,.form .btn,.form .form__note{grid-column:1 / -1}
+  .service{padding:2rem 1rem;grid-template-columns:4rem 1fr auto}
+}
+
+/* =========================================================
+   18. ESCRITORIO ≥ 1024 px
+   ========================================================= */
+@media (min-width:1024px){
+  .nav{display:flex;gap:2rem}
+  .hero__content{max-width:62%}
+  .hero .big8{right:-30vw;bottom:auto;top:14vh;color:var(--od-coral)} /* 8 coral, fuera de la zona del texto y del header */
+  .big8 span{font-size:min(95vw,1150px)}
+  .values{grid-template-columns:repeat(5,1fr)}
+  .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:1.75rem}
+  .value__n{font-size:6rem}
+  .value__t{margin-top:auto;margin-bottom:.5rem}
+  .plans{grid-template-columns:repeat(3,1fr)}
+  .plans .plan:last-child{grid-column:auto}
+  .plan--featured{transform:translateY(-1rem)}
+  .plan--featured:hover{transform:translateY(-1.5rem)}
+  .contact{grid-template-columns:1fr 1.1fr;align-items:center}
+  .service{grid-template-columns:5rem 1fr auto auto}
+  .service__n{grid-row:1;grid-column:1}
+  .service__name{grid-row:1;grid-column:2}
+  .service__desc{grid-row:1;grid-column:3;text-align:right;max-width:32ch;justify-self:end}
+  .service__go{grid-row:1;grid-column:4}
+  .footer .big8{right:-25vw}
+  .footer{padding-bottom:4rem}
+  .sticky-cta{left:auto;right:1.5rem;bottom:1.5rem}
+  .sticky-cta .btn{width:auto;border-radius:var(--radius-pill)}
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="logo" href="#inicio" aria-label="Octavo Día, agencia creativa. Ir al inicio">
+      <span>Octavo <span class="logo__dia">Día</span></span><span class="logo__dot" aria-hidden="true"></span>
+      <span class="logo__desc" aria-hidden="true">Agencia creativa</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#planes">Planes</a>
+      <a href="#casos">Casos</a>
+      <a href="#preguntas">Preguntas</a>
+    </nav>
+    <a class="btn btn--primary" href="#contacto" data-wa="header">Escríbenos</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= 1. HERO: propuesta de valor ================= -->
+<section class="section section--dark hero" id="inicio" aria-labelledby="hero-title">
+  <div class="big8" data-parallax="0.18" aria-hidden="true"><span>8</span></div>
+  <div class="container hero__content">
+    <p class="hero__rec"><span class="rec rec--live" aria-hidden="true"></span> REC <time id="rec-timer" aria-hidden="true">00:00:00</time><span class="sr-only">Agencia creativa en Lima</span></p>
+    <!-- EDITAR: titular principal (una línea por <span class="line">) -->
+    <h1 class="display hero__title" id="hero-title">
+      <span class="line"><span style="--i:0">¿Tu marca</span></span>
+      <span class="line"><span style="--i:1">se quedó</span></span>
+      <span class="line"><span style="--i:2">quieta?</span></span>
+      <span class="line"><span class="hl" style="--i:3">Te la movemos.</span></span>
+    </h1>
+    <p class="lead hero__lead reveal" style="--i:4">Diseño, video, redes y web con un solo equipo propio en Lima. Sin intermediarios y con precios, plazos y alcances por escrito.</p>
+    <div class="hero__ctas reveal" style="--i:5">
+      <a class="btn btn--primary" href="#contacto" data-wa="hero">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+        Cotiza por WhatsApp
+      </a>
+      <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Marquesina ================= -->
+<div class="marquee" id="marquee" role="region" aria-label="Servicios de Octavo Día">
+  <div class="marquee__track">
+    <ul>
+      <li>Branding <span class="rec" aria-hidden="true"></span></li>
+      <li>Diseño gráfico <span class="rec" aria-hidden="true"></span></li>
+      <li>Producción audiovisual <span class="rec" aria-hidden="true"></span></li>
+      <li>Edición de video <span class="rec" aria-hidden="true"></span></li>
+      <li>Community management <span class="rec" aria-hidden="true"></span></li>
+      <li>Diseño web <span class="rec" aria-hidden="true"></span></li>
+    </ul>
+    <ul aria-hidden="true">
+      <li>Branding <span class="rec"></span></li>
+      <li>Diseño gráfico <span class="rec"></span></li>
+      <li>Producción audiovisual <span class="rec"></span></li>
+      <li>Edición de video <span class="rec"></span></li>
+      <li>Community management <span class="rec"></span></li>
+      <li>Diseño web <span class="rec"></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= 2. BENEFICIOS: valores del manual ================= -->
+<section class="section" id="nosotros" aria-labelledby="values-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">¿Quiénes somos?</p>
+      <h2 class="display h2 reveal" id="values-title" style="--i:1">Un solo equipo.<br>Todo en casa.</h2>
+      <p class="lead reveal" style="--i:2">El séptimo día todos descansan; el octavo se vuelve a crear. Llegamos cuando tu marca necesita empezar algo nuevo o volver a moverse.</p>
+    </div>
+    <ul class="values">
+      <li class="value value--coral reveal" style="--i:0"><span class="value__n">1</span><h3 class="display value__t">Hacer, no prometer</h3><p>Mostramos avances, no discursos.</p></li>
+      <li class="value value--dark reveal" style="--i:1"><span class="value__n">2</span><h3 class="display value__t">Velocidad con criterio</h3><p>Rápido no es improvisado: toda pieza pasa por revisión.</p></li>
+      <li class="value value--line reveal" style="--i:2"><span class="value__n">3</span><h3 class="display value__t">Todo en casa</h3><p>Si lo cotizamos, lo producimos nosotros.</p></li>
+      <li class="value value--dark reveal" style="--i:3"><span class="value__n">4</span><h3 class="display value__t">Claridad</h3><p>Precios, plazos y alcances por escrito.</p></li>
+      <li class="value value--coral reveal" style="--i:4"><span class="value__n">5</span><h3 class="display value__t">Curiosidad</h3><p>Probamos formatos nuevos antes que el resto.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 3. SERVICIOS (cada fila abre WhatsApp con el servicio) ================= -->
+<section class="section section--dark" id="servicios" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">¿Qué hacemos?</p>
+      <h2 class="display h2 reveal" id="services-title" style="--i:1">Diseñamos, grabamos<br>y publicamos.</h2>
+    </div>
+    <div class="services">
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Branding"><span class="service__n">01</span><span class="display service__name">Branding</span><p class="service__desc">Naming, logotipo, identidad visual y manual de marca.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Diseño gráfico"><span class="service__n">02</span><span class="display service__name">Diseño gráfico</span><p class="service__desc">Piezas para redes, campañas, impresos y presentaciones.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Producción audiovisual"><span class="service__n">03</span><span class="display service__name">Producción audiovisual</span><p class="service__desc">Grabación con equipo y personal propio, en estudio o locación.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Edición de video"><span class="service__n">04</span><span class="display service__name">Edición de video</span><p class="service__desc">Reels, spots, videos corporativos y contenido corto.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Community management"><span class="service__n">05</span><span class="display service__name">Community management</span><p class="service__desc">Estrategia, calendario de contenidos, publicación y reporte.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="service reveal" href="#contacto" data-wa="servicio" data-wa-service="Diseño web"><span class="service__n">06</span><span class="display service__name">Diseño web</span><p class="service__desc">Sitios institucionales y landing pages claras y medibles.</p><span class="service__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. OFERTA: formatos por tipo de cliente (manual p.7) ================= -->
+<section class="section" id="planes" aria-labelledby="plans-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Para quién</p>
+      <h2 class="display h2 reveal" id="plans-title" style="--i:1">Elige cómo<br>trabajamos juntos.</h2>
+    </div>
+    <div class="plans">
+      <article class="plan reveal" style="--i:0">
+        <span class="plan__badge">Paquete</span>
+        <h3 class="display h3">Emprendedores y startups</h3>
+        <p class="plan__label">Te decimos</p>
+        <p class="plan__quote">“Te armamos la marca y la movemos, sin que coordines nada.”</p>
+        <p class="plan__label">Formato</p>
+        <p class="plan__quote">Paquetes simples y cerrados.</p>
+        <p class="plan__price">[Desde S/ 000 · completar o borrar]</p>
+        <a class="btn btn--dark" href="#contacto" data-wa="plan" data-wa-service="un paquete para emprendedores">Quiero mi paquete</a>
+      </article>
+      <article class="plan plan--featured reveal" style="--i:1">
+        <span class="plan__badge">Plan mensual</span>
+        <h3 class="display h3">Pymes</h3>
+        <p class="plan__label">Te decimos</p>
+        <p class="plan__quote">“Un solo equipo para todo tu contenido, cada mes.”</p>
+        <p class="plan__label">Formato</p>
+        <p class="plan__quote">Planes mensuales combinados.</p>
+        <p class="plan__price">[Desde S/ 000 al mes · completar o borrar]</p>
+        <a class="btn btn--primary" href="#contacto" data-wa="plan" data-wa-service="un plan mensual para pyme">Quiero un plan mensual</a>
+      </article>
+      <article class="plan reveal" style="--i:2">
+        <span class="plan__badge">Por fases</span>
+        <h3 class="display h3">Medianas y grandes empresas</h3>
+        <p class="plan__label">Te decimos</p>
+        <p class="plan__quote">“Producción propia y entregas en plazo, con un responsable único.”</p>
+        <p class="plan__label">Formato</p>
+        <p class="plan__quote">Propuestas por fases con entregables.</p>
+        <p class="plan__price">[A medida · completar o borrar]</p>
+        <a class="btn btn--dark" href="#contacto" data-wa="plan" data-wa-service="una propuesta por fases para mi empresa">Pedir propuesta</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. PRUEBA SOCIAL: EDITAR con casos y testimonios REALES ================= -->
+<section class="section section--dark" id="casos" aria-labelledby="cases-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal"><span class="rec" aria-hidden="true"></span> Casos</p>
+      <h2 class="display h2 reveal" id="cases-title" style="--i:1">Avances,<br>no discursos.</h2>
+    </div>
+    <div class="cases">
+      <!-- EDITAR: reemplazar .case__media por <img class="case__media" src="..." alt="..." loading="lazy" width="800" height="1000" style="object-fit:cover"> -->
+      <a class="case reveal" href="#" style="--i:0"><div class="case__media case__media--a" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
+      <a class="case reveal" href="#" style="--i:1"><div class="case__media case__media--b" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
+      <a class="case reveal" href="#" style="--i:2"><div class="case__media case__media--c" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
+    </div>
+    <!-- EDITAR: testimonio real con autorización del cliente, o borrar este bloque -->
+    <figure class="quote reveal">
+      <blockquote>“[Testimonio real del cliente]”</blockquote>
+      <figcaption>[Nombre Apellido] · [Cargo] · [Empresa]</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= 6. PREGUNTAS FRECUENTES ================= -->
+<section class="section" id="preguntas" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Preguntas frecuentes</p>
+      <h2 class="display h2 reveal" id="faq-title" style="--i:1">Directo al punto.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>¿Qué servicios hacen?<span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Branding, diseño gráfico, producción audiovisual, edición de video, community management y diseño web. Todo con el mismo equipo.</p></div>
+      </details>
+      <details>
+        <summary>¿Subcontratan la producción?<span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>No. Tenemos equipo propio de grabación y edición. Si lo cotizamos, lo producimos nosotros.</p></div>
+      </details>
+      <details>
+        <summary>¿Cómo cotizan?<span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>Nos escribes por WhatsApp o llenas el formulario y te enviamos precio, plazo y alcance por escrito. [EDITAR: tiempo real de respuesta].</p></div>
+      </details>
+      <details>
+        <summary>¿Cuánto demora un proyecto?<span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>[EDITAR: plazos reales por tipo de servicio].</p></div>
+      </details>
+      <details>
+        <summary>¿Trabajan con marcas fuera de Lima?<span class="faq__icon" aria-hidden="true"></span></summary>
+        <div class="faq__a"><p>[EDITAR: confirmar cobertura — Lima, provincias o remoto].</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. CIERRE CON CTA ================= -->
+<section class="section section--coral" id="contacto" aria-labelledby="contact-title">
+  <div class="container contact">
+    <div>
+      <p class="eyebrow reveal"><span class="rec" style="background:var(--od-negro)" aria-hidden="true"></span> Escríbenos</p>
+      <h2 class="display h2 reveal" id="contact-title" style="--i:1">¿Empezamos tu<br>octavo día?</h2>
+      <p class="lead reveal" style="--i:2">Cuéntanos qué necesitas y te respondemos por WhatsApp con precio, plazo y alcance por escrito.</p>
+    </div>
+    <form class="form reveal" id="quote-form" style="--i:3" novalidate>
+      <div class="field">
+        <label for="f-nombre">Nombre *</label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-marca">Marca o empresa</label>
+        <input id="f-marca" name="marca" type="text" autocomplete="organization">
+      </div>
+      <div class="field field--full">
+        <label for="f-servicio">¿Qué necesitas? *</label>
+        <select id="f-servicio" name="servicio" required>
+          <option value="">Elige una opción</option>
+          <option>Branding</option>
+          <option>Diseño gráfico</option>
+          <option>Producción audiovisual</option>
+          <option>Edición de video</option>
+          <option>Community management</option>
+          <option>Diseño web</option>
+          <option>Varios / aún no sé</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="f-mensaje">Cuéntanos un poco más</label>
+        <textarea id="f-mensaje" name="mensaje" rows="3"></textarea>
+      </div>
+      <button class="btn btn--dark btn--block" type="submit">
+        Enviar por WhatsApp
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="form__note">Al enviar se abrirá WhatsApp con tu mensaje listo. No guardamos tus datos en esta página. <a href="#">Política de privacidad</a></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="section section--dark footer">
+  <div class="big8" data-parallax="0.12" aria-hidden="true"><span>8</span></div>
+  <div class="container">
+    <div class="footer__grid">
+      <div class="logo-v" role="img" aria-label="Octavo Día, agencia creativa">
+        <span class="logo-v__top">Octavo</span>
+        <span class="logo-v__bottom"><span class="logo-v__dia">Día</span><span class="logo-v__dot"></span><span class="logo-v__desc">Agencia<br>creativa</span></span>
+      </div>
+      <div>
+        <h2>Contacto</h2>
+        <!-- EDITAR: datos reales -->
+        <ul>
+          <li><a href="#contacto" data-wa="footer">WhatsApp +51 [000 000 000]</a></li>
+          <li><a href="mailto:[correo]@octavodia.pe">[correo]@octavodia.pe</a></li>
+          <li><a href="https://instagram.com/octavodia" target="_blank" rel="noopener">@octavodia</a></li>
+          <li><span class="muted">Lima, Perú</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <!-- EDITAR: enlaces reales. Validar con un profesional el Libro de Reclamaciones -->
+        <ul>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Libro de Reclamaciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <span>© <span id="year">2026</span> Octavo Día · Agencia creativa</span>
+      <span>[Razón social · RUC 00000000000]</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CTA fijo -->
+<div class="sticky-cta" id="sticky-cta">
+  <a class="btn btn--primary" href="#contacto" data-wa="sticky">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+    Cotiza por WhatsApp
+  </a>
+</div>
+
+<script>
+/* =========================================================
+   OCTAVO DÍA · JavaScript (sin librerías)
+   Solo anima transform y opacity: fluido en celulares.
+   ========================================================= */
+(() => {
+  // ---------- EDITAR: configuración ----------
+  const CONFIG = {
+    whatsapp: '51XXXXXXXXX',                          // número con código de país, sin "+" ni espacios
+    msgGeneral: 'Hola, Octavo Día. Quiero cotizar un proyecto.',
+    msgServicio: (s) => `Hola, Octavo Día. Quiero cotizar: ${s}.`
+  };
+
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+
+  // ---------- UTM: se guardan y viajan en el mensaje de WhatsApp ----------
+  const params = new URLSearchParams(location.search);
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const utmNow = utmKeys.filter(k => params.get(k)).map(k => `${k}=${params.get(k)}`).join('&');
+  try { if (utmNow) sessionStorage.setItem('od_utm', utmNow); } catch (e) {}
+  const getUtm = () => { if (utmNow) return utmNow; try { return sessionStorage.getItem('od_utm') || ''; } catch (e) { return ''; } };
+
+  const waLink = (text) => {
+    const utm = getUtm();
+    const full = utm ? `${text}\n\n(ref: ${utm})` : text;
+    return `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(full)}`;
+  };
+
+  // Eventos para Meta Pixel y GA4 (solo si están instalados)
+  const track = (where) => {
+    if (typeof window.fbq === 'function') window.fbq('track', 'Contact', { content_name: where });
+    if (typeof window.gtag === 'function') window.gtag('event', 'whatsapp_click', { location: where });
+  };
+
+  // Enlaces a WhatsApp. Sin JS, siguen llevando al formulario (#contacto).
+  $$('[data-wa]').forEach(a => {
+    const svc = a.dataset.waService;
+    a.href = waLink(svc ? CONFIG.msgServicio(svc) : CONFIG.msgGeneral);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.addEventListener('click', () => track(a.dataset.wa));
+  });
+
+  // ---------- Formulario → WhatsApp ----------
+  const form = $('#quote-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const f = new FormData(form);
+      const lines = [
+        'Hola, Octavo Día. Quiero cotizar.',
+        `Nombre: ${f.get('nombre')}`,
+        f.get('marca') ? `Marca/empresa: ${f.get('marca')}` : null,
+        `Servicio: ${f.get('servicio')}`,
+        f.get('mensaje') ? `Detalle: ${f.get('mensaje')}` : null
+      ].filter(Boolean);
+      track('formulario');
+      window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+    });
+  }
+
+  // ---------- Entrada del hero ----------
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded')));
+
+  // ---------- Contador REC (00:00:00) ----------
+  const timer = $('#rec-timer');
+  if (timer) {
+    const start = Date.now();
+    const pad = n => String(n).padStart(2, '0');
+    const tick = () => {
+      const s = Math.floor((Date.now() - start) / 1000);
+      timer.textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+    };
+    setInterval(tick, 1000);
+  }
+
+  // ---------- Aparición al hacer scroll ----------
+  const reveals = $$('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  }
+
+  // ---------- Scroll: header + parallax del 8 (un solo rAF por frame) ----------
+  const header = $('#header');
+  const eights = $$('[data-parallax]');
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const onFrame = () => {
+    const y = window.scrollY;
+    header.classList.toggle('is-scrolled', y > 40);
+    header.classList.toggle('is-hidden', y > lastY && y > 480);
+    lastY = y;
+
+    if (!reduce) {
+      const vh = window.innerHeight;
+      eights.forEach(el => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;            // fuera de pantalla: no calcula
+        const k = parseFloat(el.dataset.parallax) || 0.15;
+        const d = -r.top * k;
+        el.style.transform = `translate3d(${(d * 0.5).toFixed(1)}px, ${d.toFixed(1)}px, 0)`; // diagonal, como el 8 del manual
+      });
+    }
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
+  }, { passive: true });
+  onFrame();
+
+  // ---------- CTA fijo: aparece tras el hero, se oculta en contacto y footer ----------
+  const sticky = $('#sticky-cta');
+  const watch = [$('#inicio'), $('#contacto'), $('footer')].filter(Boolean);
+  if (sticky && 'IntersectionObserver' in window) {
+    const visible = new Set();
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach(en => en.isIntersecting ? visible.add(en.target) : visible.delete(en.target));
+      sticky.classList.toggle('is-visible', visible.size === 0);
+    });
+    watch.forEach(el => so.observe(el));
+  }
+
+  // ---------- Marquesina: se pausa fuera de pantalla (ahorra batería) ----------
+  const marquee = $('#marquee');
+  if (marquee && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => marquee.classList.toggle('is-paused', !en.isIntersecting)).observe(marquee);
+  }
+
+  // ---------- FAQ: respuesta con entrada suave ----------
+  if (!reduce && 'animate' in Element.prototype) {
+    $$('.faq details').forEach(d => d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      $('.faq__a', d).animate(
+        [{ opacity: 0, transform: 'translateY(-8px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 320, easing: 'cubic-bezier(.22,1,.36,1)' }
+      );
+    }));
+  }
+
+  // Año del footer
+  const yEl = $('#year'); if (yEl) yEl.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
