@@ -164,7 +164,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero{min-height:100svh;display:flex;align-items:center;padding-top:calc(var(--header-h) + 2rem);padding-bottom:3rem}
 .hero__grid{position:relative;z-index:1;display:grid;gap:2.5rem;align-items:center}
 .hero__content{position:relative;z-index:2}
-.hero__rec{display:inline-flex;align-items:center;gap:.6em;margin-bottom:1.5rem;font:700 .8125rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--od-crudo)}
+.hero__rec{display:flex;width:max-content;align-items:center;gap:.6em;margin-bottom:1.5rem;font:700 .8125rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--od-crudo)}
 .hero__rec time{font-variant-numeric:tabular-nums;color:var(--od-texto-sec-oscuro)}
 .hero__title{font-size:var(--fs-hero);margin-bottom:1.5rem}
 .hero__title .line{display:block;overflow:hidden;padding-top:.12em;margin-top:-.12em}
@@ -176,7 +176,10 @@ ul{margin:0;padding:0;list-style:none}
 .big8{position:absolute;z-index:0;pointer-events:none;will-change:transform;aspect-ratio:1}
 .big8 svg{display:block;width:100%;height:100%;fill:currentColor}
 /* Hero: el 8D es una columna más de la retícula, completo y alineado al borde derecho del contenedor */
-.hero__symbol{justify-self:end;width:min(70%,340px);color:var(--od-coral);will-change:transform}
+/* Celular y tablet: el 8D va al lado del titular, junto a las 3 primeras líneas (el espacio libre a la derecha).
+   Ancho = lo que deja libre "¿TU MARCA" (≈4,4 em de Anton); centrado en altura con esas 3 líneas. */
+.hero__grid{position:relative}
+.hero__symbol{--sym:clamp(72px,calc(100vw - 2 * var(--gutter) - 4.4 * var(--fs-hero)),30vw);position:absolute;right:var(--gutter);top:calc(2.3125rem + (2.85 * var(--fs-hero) - var(--sym)) / 2);width:var(--sym);color:var(--od-coral);will-change:transform;pointer-events:none}
 .hero__symbol svg{display:block;width:100%;height:auto;aspect-ratio:994/991;fill:currentColor}
 .js .hero__symbol svg{opacity:0;transform:rotate(-12deg) scale(.85);transition:opacity .9s var(--ease-out) .45s,transform 1.3s var(--ease-out) .45s}
 .js.is-loaded .hero__symbol svg{opacity:1;transform:none}
@@ -322,7 +325,6 @@ ul{margin:0;padding:0;list-style:none}
    17. TABLET ≥ 768 px
    ========================================================= */
 @media (min-width:768px){
-  .hero__symbol{width:min(48%,380px)}
   .values{grid-template-columns:repeat(2,1fr)}
   .value:last-child{grid-column:span 2}
   .plans{grid-template-columns:repeat(2,1fr)}
@@ -349,7 +351,7 @@ ul{margin:0;padding:0;list-style:none}
   .hero__title{font-size:min(var(--fs-hero),6vw)}
   @supports (width:1cqi){.hero__title{font-size:15cqi}} /* "TE LA MOVEMOS." ocupa todo el ancho de la columna */
   .hero__lead{max-width:46ch}
-  .hero__symbol{width:100%}
+  .hero__symbol{position:static;justify-self:end;width:100%;top:auto}
   .values{grid-template-columns:repeat(5,1fr)}
   .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:1.75rem}
   .value__n{font-size:6rem}
