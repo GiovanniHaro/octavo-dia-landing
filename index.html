@@ -62,7 +62,7 @@
   --container-max:1200px;
   --gutter:clamp(1rem,.5rem + 2.5vw,2.5rem);
   --tap-min:48px;
-  --header-h:72px;
+  --header-h:112px;           /* móvil: fila del logo + fila del menú */
 
   --ease-out:cubic-bezier(.22,1,.36,1);
   --dur-fast:150ms;
@@ -74,7 +74,7 @@
    2. BASE
    ========================================================= */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) - 1px)}
 body{margin:0;background:var(--od-crudo);color:var(--od-negro);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
@@ -145,14 +145,16 @@ ul{margin:0;padding:0;list-style:none}
 /* =========================================================
    5. HEADER (se oculta al bajar, reaparece al subir)
    ========================================================= */
-.header{position:fixed;inset:0 0 auto;z-index:50;height:var(--header-h);transition:transform var(--dur-base) var(--ease-out),background-color var(--dur-base) var(--ease-out)}
-.header.is-scrolled{background:rgb(32 30 31 / .94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.header.is-hidden{transform:translateY(-100%)}
-.header__inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.nav{display:none}
-.nav a{position:relative;color:var(--od-crudo);text-decoration:none;font-weight:500;padding:.5rem 0}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:.2rem;height:2px;background:var(--od-coral);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-base) var(--ease-out)}
-.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.header{position:fixed;inset:0 0 auto;z-index:50;height:var(--header-h);background:rgb(32 30 31 / 0);transition:background-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+.header.is-scrolled{background:rgb(32 30 31 / .94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--od-negro-2)}
+/* Menú siempre visible: el header nunca se oculta al hacer scroll */
+.header__inner{height:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;align-content:center;column-gap:.75rem}
+.nav{grid-column:1 / -1;grid-row:2;display:flex;justify-content:space-between;margin-top:.5rem}
+.nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:var(--od-texto-sec-oscuro);text-decoration:none;font-weight:500;font-size:.9375rem;transition:color var(--dur-fast)}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:.35rem;height:2px;background:var(--od-coral);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-base) var(--ease-out)}
+.nav a:hover,.nav a.is-active{color:var(--od-crudo)}
+.nav a:hover::after,.nav a.is-active::after{transform:scaleX(1);transform-origin:left}
+/* sección actual: la raya coral queda fija bajo la opción */
 .header .btn{min-height:44px;padding:.6em 1.1em;font-size:.9375rem}
 
 /* =========================================================
@@ -335,7 +337,10 @@ ul{margin:0;padding:0;list-style:none}
    18. ESCRITORIO ≥ 1024 px
    ========================================================= */
 @media (min-width:1024px){
-  .nav{display:flex;gap:2rem}
+  :root{--header-h:72px}
+  .header__inner{display:flex;justify-content:space-between;gap:1rem}
+  .nav{grid-row:auto;margin-top:0;justify-content:center;gap:2rem}
+  .nav a{font-size:var(--fs-body)}
   /* Retícula 57/43: texto a la izquierda (alineado con el logo), 8D a la derecha (alineado con "Escríbenos") */
   .hero{padding-bottom:4rem}
   .hero__grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2.5rem,5vw,5.5rem)}
@@ -753,14 +758,11 @@ ul{margin:0;padding:0;list-style:none}
   // ---------- Scroll: header + parallax del 8 (un solo rAF por frame) ----------
   const header = $('#header');
   const eights = $$('[data-parallax]');
-  let lastY = window.scrollY;
   let ticking = false;
 
   const onFrame = () => {
     const y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 40);
-    header.classList.toggle('is-hidden', y > lastY && y > 480);
-    lastY = y;
 
     if (!reduce) {
       const vh = window.innerHeight;
@@ -779,6 +781,27 @@ ul{margin:0;padding:0;list-style:none}
     if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
   }, { passive: true });
   onFrame();
+
+  // ---------- Menú: marca la sección en la que estás ----------
+  const navLinks = $$('.nav a[href^="#"]');
+  const spyTargets = navLinks.map(a => $(a.getAttribute('href'))).filter(Boolean);
+  if (spyTargets.length && 'IntersectionObserver' in window) {
+    const setActive = (id) => navLinks.forEach(a => {
+      const on = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('is-active', on);
+      on ? a.setAttribute('aria-current', 'location') : a.removeAttribute('aria-current');
+    });
+    // Una franja fina bajo el header decide qué sección está "activa"
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) setActive(en.target.id); });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    spyTargets.forEach(sec => spy.observe(sec));
+    // Arriba del todo (hero) o en contacto: ninguna opción marcada
+    const clear = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) setActive(''); });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    [$('#inicio'), $('#nosotros'), $('#contacto')].filter(Boolean).forEach(sec => clear.observe(sec));
+  }
 
   // ---------- CTA fijo: aparece tras el hero, se oculta en contacto y footer ----------
   const sticky = $('#sticky-cta');
