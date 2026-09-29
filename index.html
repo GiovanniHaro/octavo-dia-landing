@@ -177,10 +177,10 @@ ul{margin:0;padding:0;list-style:none}
 .big8 svg{display:block;width:100%;height:100%;fill:currentColor}
 /* Hero: el 8D es una columna más de la retícula, completo y alineado al borde derecho del contenedor */
 /* Celular y tablet: 8D grande que "sale de la pantalla" por la derecha y por arriba.
-   Mide 56vw, un 32 % queda fuera por la derecha y su borde inferior coincide con la línea "QUIETA?".
+   Mide 56vw, un 32 % queda fuera por la derecha (o más, para dejar siempre 16 px libres junto a "¿TU MARCA") y su borde inferior coincide con la línea "QUIETA?".
    El header opaco lo recorta arriba. */
 .hero__grid{position:relative}
-.hero__symbol{--sym:56vw;position:absolute;z-index:0;right:calc(-.32 * var(--sym));top:calc(2.3125rem + 2.85 * var(--fs-hero) - var(--sym));width:var(--sym);color:var(--od-coral);will-change:transform;pointer-events:none}
+.hero__symbol{--sym:56vw;position:absolute;z-index:0;left:max(calc(100vw - .68 * var(--sym)),calc(var(--gutter) + 4.12 * var(--fs-hero) + 16px));top:calc(2.3125rem + 2.85 * var(--fs-hero) - var(--sym));width:var(--sym);color:var(--od-coral);will-change:transform;pointer-events:none}
 .hero__symbol svg{display:block;width:100%;height:auto;aspect-ratio:994/991;fill:currentColor}
 .js .hero__symbol svg{opacity:0;transform:rotate(-12deg) scale(.85);transition:opacity .9s var(--ease-out) .45s,transform 1.3s var(--ease-out) .45s}
 .js.is-loaded .hero__symbol svg{opacity:1;transform:none}
@@ -352,7 +352,7 @@ ul{margin:0;padding:0;list-style:none}
   .hero__title{font-size:min(var(--fs-hero),6vw)}
   @supports (width:1cqi){.hero__title{font-size:15cqi}} /* "TE LA MOVEMOS." ocupa todo el ancho de la columna */
   .hero__lead{max-width:46ch}
-  .hero__symbol{position:static;justify-self:end;width:100%;top:auto;right:auto}
+  .hero__symbol{position:static;justify-self:end;width:100%;top:auto;left:auto}
   .values{grid-template-columns:repeat(5,1fr)}
   .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:1.75rem}
   .value__n{font-size:6rem}
