@@ -228,16 +228,20 @@ ul{margin:0;padding:0;list-style:none}
 /* =========================================================
    9. SERVICIOS (tarjetas con líneas arriba y abajo; barrido coral al pasar)
    ========================================================= */
-.svc{container-type:inline-size}
+.svc{container-type:inline-size;padding-inline:max(var(--gutter),9.5vw)}
 .svc .section-head{max-width:none}
-.services{display:grid;gap:1rem}
-.service{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:1.25rem 1rem;border-block:3px solid var(--od-crudo);text-decoration:none;color:var(--od-crudo);transition:color var(--dur-base) var(--ease-out)}
+/* Celular y tablet: dos columnas, medidas tomadas del diseño (cqi = % del ancho del contenido) */
+.svc .h2{font-size:10.5cqi;line-height:1.06;margin-bottom:2.8cqi}
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:9.8cqi;row-gap:8.2cqi}
+.service{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:27cqi;padding:3.5cqi 1cqi 3cqi 4.2cqi;border-block:2px solid var(--od-crudo);text-decoration:none;color:var(--od-crudo);transition:color var(--dur-base) var(--ease-out)}
+.service:nth-child(3),.service:nth-child(6){order:1} /* en celular "Social media" baja a la tercera fila */
 .service::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--od-coral);transform:scaleY(0);transform-origin:bottom;transition:transform var(--dur-base) var(--ease-out)}
 .service:hover,.service:focus-visible{color:var(--od-negro)}
 .service:hover::before,.service:focus-visible::before{transform:scaleY(1)}
-.service__name{font-size:clamp(1.75rem,8vw,2.5rem);line-height:1.08;margin:0 0 .6rem}
-.service__desc{margin:0;font-size:.9375rem;line-height:1.15}
-.svc .br-pc{display:none}
+.service__name{font-size:6.53cqi;line-height:1.08;margin:0 0 2cqi}
+.service__desc{margin:0;font-size:max(.625rem,2.45cqi);line-height:1.1}
+.service__desc .br-pc{display:none} /* en celular la descripción corre sola */
+.svc .h2 .br-pc{display:none} /* en celular el titular corre solo; las tarjetas mantienen sus cortes */
 
 /* =========================================================
    10. PLANES / PARA QUIÉN
@@ -384,12 +388,14 @@ ul{margin:0;padding:0;list-style:none}
   .plan--featured:hover{transform:translateY(-1.5rem)}
   .contact{grid-template-columns:1fr 1.1fr;align-items:center}
   /* Servicios en PC: medidas tomadas del diseño (cqi = % del ancho del contenido) */
+  .svc{padding-inline:var(--gutter)}
+  .service:nth-child(3),.service:nth-child(6){order:0}
   .svc .h2{font-size:6.76cqi;line-height:1.09;margin-bottom:6.6cqi}
   .services{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:7.3cqi;row-gap:5.1cqi}
-  .service{min-height:16.9cqi;padding:2cqi 1cqi 1.6cqi 2.6cqi}
+  .service{min-height:16.9cqi;padding:2cqi 1cqi 1.6cqi 2.6cqi;border-block-width:3px}
   .service__name{font-size:4.06cqi;line-height:1.08;margin-bottom:.6cqi}
   .service__desc{font-size:1.53cqi;line-height:.95;white-space:nowrap}
-  .svc .br-pc{display:inline}
+  .svc .h2 .br-pc,.service__desc .br-pc{display:inline}
   .footer .big8{width:min(50vw,800px);right:-12vw;top:-30%}
   .footer{padding-bottom:4rem}
   .sticky-cta{left:auto;right:1.5rem;bottom:1.5rem}
