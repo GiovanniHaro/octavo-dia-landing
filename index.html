@@ -203,18 +203,22 @@ ul{margin:0;padding:0;list-style:none}
 /* =========================================================
    8. VALORES (Un solo equipo)
    ========================================================= */
-.values{display:grid;gap:1rem}
-.value{position:relative;display:grid;grid-template-columns:3.75rem 1fr;gap:.25rem 1.25rem;align-items:start;align-content:center;padding:1.5rem;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
+/* Celular y tablet: tarjetas horizontales; número gigante girado a la izquierda (recortado) y texto a la derecha.
+   Las medidas en cqi son % del ancho de la tarjeta (.values es el contenedor) */
+.values{display:grid;gap:1rem;container-type:inline-size;max-width:620px;margin-inline:auto}
+.value{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;min-height:35cqi;padding:4cqi 3cqi 4cqi 44cqi;overflow:hidden;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
 .value:hover{transform:translateY(-6px)}
-.value__n{grid-row:span 2;align-self:center;text-align:center;font:400 3.5rem/.85 var(--font-display)} /* columna fija: todos los títulos empiezan en la misma línea */
-.value__t{font-size:1.5rem;line-height:1}
-.value p{margin:0}
-.br-pc{display:none}
+.value__n{position:absolute;left:15.5cqi;top:50%;transform:translate(-50%,-50%) rotate(-45deg);font:400 41cqi/.8 var(--font-display);white-space:nowrap;pointer-events:none}
+.value__t{position:relative;font-size:9.1cqi;line-height:.95;margin:0 0 2.2cqi;white-space:nowrap}
+.value p{position:relative;margin:0;font-size:max(.8125rem,3.6cqi);line-height:1.15}
+.value p .br-pc{display:none} /* en celular el texto corre solo */
 .value--coral{background:var(--od-coral);color:var(--od-negro)}       /* texto negro: AA */
 .value--dark{background:var(--od-negro);color:var(--od-crudo)}
 .value--dark p{color:var(--od-texto-sec-oscuro)}
 .value--line{border-color:var(--od-negro)}
-.value--dark .value__n{color:#fff}
+.value--dark .value__n{color:var(--od-crudo)}
+.value--dark p{color:var(--od-crudo)}
+.value--line{border-width:3px}
 
 /* =========================================================
    9. SERVICIOS (filas con barrido coral)
@@ -332,8 +336,6 @@ ul{margin:0;padding:0;list-style:none}
    17. TABLET ≥ 768 px
    ========================================================= */
 @media (min-width:768px){
-  .values{grid-template-columns:repeat(2,1fr);grid-auto-rows:1fr} /* todas las tarjetas con la misma altura */
-  .value:last-child{grid-column:span 2}
   .plans{grid-template-columns:repeat(2,1fr)}
   .plans .plan:last-child{grid-column:span 2}
   .cases{grid-template-columns:repeat(3,1fr)}
@@ -360,13 +362,14 @@ ul{margin:0;padding:0;list-style:none}
   .hero__lead{max-width:46ch}
   .hero__symbol{position:static;justify-self:end;width:100%;top:auto;left:auto}
   /* Valores en PC: tarjetas verticales con el número gigante girado que se sale por arriba; título y texto centrados abajo */
-  .values{grid-template-columns:repeat(5,1fr);grid-auto-rows:auto}
-  .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;aspect-ratio:362/640;padding:0 6% 21%;overflow:hidden;container-type:inline-size;gap:0}
+  .values{grid-template-columns:repeat(5,1fr);grid-auto-rows:auto;max-width:none;container-type:normal}
+  .value--dark .value__n{color:#fff}
+  .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;aspect-ratio:362/640;min-height:0;padding:0 6% 21%;overflow:hidden;container-type:inline-size;gap:0}
   .value__n{position:absolute;left:48%;top:38cqi;transform:translate(-50%,-50%) rotate(-45deg);font:400 118cqi/.8 var(--font-display);white-space:nowrap;pointer-events:none;align-self:auto;grid-row:auto}
   .value--dark p{color:#fff}
   .value__t{position:relative;font-size:16.8cqi;line-height:.95;margin:0 0 3cqi}
   .value p{position:relative;font-size:clamp(.8125rem,7.5cqi,1.125rem);line-height:1.1}
-  .br-pc{display:inline}
+  .value p .br-pc{display:inline}
   .value--line{border-width:3px}
   .plans{grid-template-columns:repeat(3,1fr)}
   .plans .plan:last-child{grid-column:auto}
