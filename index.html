@@ -101,6 +101,7 @@ ul{margin:0;padding:0;list-style:none}
 .muted{color:var(--od-texto-sec-claro)}
 .hl{color:var(--od-coral)}
 .section-head{max-width:760px;margin-bottom:clamp(2rem,1rem + 3vw,3.5rem)}
+.section-head--about .br-pc{display:none} /* en celular el titular corre solo */
 
 /* Punto REC */
 .rec{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--od-coral);flex:none}
@@ -369,6 +370,9 @@ ul{margin:0;padding:0;list-style:none}
   .value__t{position:relative;font-size:16.8cqi;line-height:.95;margin:0 0 3cqi}
   .value p{position:relative;font-size:clamp(.8125rem,7.5cqi,1.125rem);line-height:1.1}
   .value p .br-pc{display:inline}
+  .section-head--about{max-width:none}
+  .section-head--about .br-pc{display:inline}
+  .section-head--about .lead{max-width:82ch}
   .value--line{border-width:3px}
   .plans{grid-template-columns:repeat(3,1fr)}
   .plans .plan:last-child{grid-column:auto}
@@ -463,10 +467,10 @@ ul{margin:0;padding:0;list-style:none}
 <!-- ================= 2. BENEFICIOS: valores del manual ================= -->
 <section class="section" id="nosotros" aria-labelledby="values-title">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head section-head--about">
       <p class="eyebrow reveal">¿Quiénes somos?</p>
-      <h2 class="display h2 reveal" id="values-title" style="--i:1">Un solo equipo.<br>Todo en casa.</h2>
-      <p class="lead reveal" style="--i:2">El séptimo día todos descansan; el octavo se vuelve a crear. Llegamos cuando tu marca necesita empezar algo nuevo o volver a moverse.</p>
+      <h2 class="display h2 reveal" id="values-title" style="--i:1">El marketing es el silencioso <br class="br-pc">embajador de tu marca</h2>
+      <p class="lead reveal" style="--i:2">Somos una agencia digital enfocada en resultados. No nos quedamos en las ideas ni en los reportes bonitos; medimos lo que hacemos por lo que tu marca logra.</p>
     </div>
     <ul class="values">
       <!-- EDITAR: valores. <br class="br-pc"> marca el corte de línea en PC -->
