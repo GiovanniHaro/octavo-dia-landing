@@ -103,9 +103,10 @@ ul{margin:0;padding:0;list-style:none}
 .section-head{max-width:760px;margin-bottom:clamp(2rem,1rem + 3vw,3.5rem)}
 .section-head--about .br-pc{display:none} /* en celular el titular corre solo */
 /* Quiénes somos: proporciones tomadas del diseño de Giovanni */
+.section-head--about{padding-inline:max(0px,calc(9.5vw - var(--gutter)))} /* en celular el bloque va centrado, como en el diseño */
 .section-head--about .eyebrow{margin-bottom:.2rem}
-.section-head--about .h2{font-size:min(9.07vw,var(--fs-h2));line-height:1.05;margin-bottom:.25em}
-.section-head--about .lead{font-size:clamp(.8125rem,3.15vw,1.0625rem);line-height:1.22;max-width:22em}
+.section-head--about .h2{font-size:min(9.07vw,4.5rem);line-height:1.05;margin-bottom:.25em}
+.section-head--about .lead{font-size:clamp(.8125rem,3.4vw,1.0625rem);line-height:1.22;max-width:22em}
 
 /* Punto REC */
 .rec{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--od-coral);flex:none}
@@ -374,7 +375,7 @@ ul{margin:0;padding:0;list-style:none}
   .value__t{position:relative;font-size:16.8cqi;line-height:.95;margin:0 0 3cqi}
   .value p{position:relative;font-size:clamp(.8125rem,7.5cqi,1.125rem);line-height:1.1}
   .value p .br-pc{display:inline}
-  .section-head--about{max-width:none}
+  .section-head--about{max-width:none;padding-inline:0}
   .section-head--about .br-pc{display:inline}
   .section-head--about .eyebrow{margin-bottom:1.15rem}
   .section-head--about .h2{line-height:1.08;margin-bottom:.24em}
