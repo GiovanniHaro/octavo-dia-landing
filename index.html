@@ -204,15 +204,19 @@ ul{margin:0;padding:0;list-style:none}
    8. VALORES (Un solo equipo)
    ========================================================= */
 .values{display:grid;gap:1rem}
-.value{position:relative;display:grid;grid-template-columns:2.5rem 1fr;gap:.25rem 1.25rem;align-items:start;align-content:center;padding:1.5rem;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
+.value{position:relative;display:grid;grid-template-columns:3.75rem 1fr;gap:.25rem 1.25rem;align-items:start;align-content:center;padding:1.5rem;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
 .value:hover{transform:translateY(-6px)}
 .value__n{grid-row:span 2;align-self:center;text-align:center;font:400 3.5rem/.85 var(--font-display)} /* columna fija: todos los títulos empiezan en la misma línea */
 .value__t{font-size:1.5rem;line-height:1}
 .value p{margin:0}
+.br-pc{display:none}
 .value--coral{background:var(--od-coral);color:var(--od-negro)}       /* texto negro: AA */
 .value--dark{background:var(--od-negro);color:var(--od-crudo)}
 .value--dark p{color:var(--od-texto-sec-oscuro)}
 .value--line{border-color:var(--od-negro)}
+.value--dark .value__n{color:#fff}
+.value--invert{color:#fff}  /* tarjeta 5: texto blanco sobre coral, como en el diseño */
+.value--invert .value__n{color:var(--od-negro)}
 
 /* =========================================================
    9. SERVICIOS (filas con barrido coral)
@@ -357,17 +361,15 @@ ul{margin:0;padding:0;list-style:none}
   @supports (width:1cqi){.hero__title{font-size:15.5cqi}} /* "NO TE ALCANZAN" ocupa todo el ancho de la columna */
   .hero__lead{max-width:46ch}
   .hero__symbol{position:static;justify-self:end;width:100%;top:auto;left:auto}
-  .values{grid-template-columns:repeat(5,1fr)}
-  .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:1.75rem}
-  .value__n{font-size:6rem}
-  .value__t{margin-top:auto;margin-bottom:.5rem}
-  /* Balance: número arriba, títulos alineados en una misma línea base y textos empezando a la misma altura en las 5 tarjetas */
-  @supports (grid-template-rows:subgrid){
-    .values{grid-template-rows:minmax(11rem,1fr) auto auto;grid-auto-rows:auto;row-gap:0}
-    .value,.value:last-child{display:grid;grid-row:span 3;grid-template-rows:subgrid;grid-template-columns:1fr;row-gap:0;min-height:0}
-    .value__n{grid-row:auto;align-self:start;text-align:left}
-    .value__t{align-self:end;margin:0 0 .75rem}
-  }
+  /* Valores en PC: tarjetas verticales con el número gigante girado que se sale por arriba; título y texto centrados abajo */
+  .values{grid-template-columns:repeat(5,1fr);grid-auto-rows:auto}
+  .value,.value:last-child{grid-column:auto;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;aspect-ratio:362/640;padding:0 6% 21%;overflow:hidden;container-type:inline-size;gap:0}
+  .value__n{position:absolute;left:48%;top:38cqi;transform:translate(-50%,-50%) rotate(-45deg) scale(1.3,1);font:400 102cqi/.8 var(--font-display);white-space:nowrap;pointer-events:none;align-self:auto;grid-row:auto}
+  .value--dark p{color:#fff}
+  .value__t{position:relative;font-size:16.8cqi;line-height:.95;margin:0 0 3cqi}
+  .value p{position:relative;font-size:clamp(.8125rem,7.5cqi,1.125rem);line-height:1.1}
+  .br-pc{display:inline}
+  .value--line{border-width:3px}
   .plans{grid-template-columns:repeat(3,1fr)}
   .plans .plan:last-child{grid-column:auto}
   .plan--featured{transform:translateY(-1rem)}
@@ -467,11 +469,12 @@ ul{margin:0;padding:0;list-style:none}
       <p class="lead reveal" style="--i:2">El séptimo día todos descansan; el octavo se vuelve a crear. Llegamos cuando tu marca necesita empezar algo nuevo o volver a moverse.</p>
     </div>
     <ul class="values">
-      <li class="value value--coral reveal" style="--i:0"><span class="value__n">1</span><h3 class="display value__t">Hacer, no prometer</h3><p>Mostramos avances, no discursos.</p></li>
-      <li class="value value--dark reveal" style="--i:1"><span class="value__n">2</span><h3 class="display value__t">Velocidad con criterio</h3><p>Rápido no es improvisado: toda pieza pasa por revisión.</p></li>
-      <li class="value value--line reveal" style="--i:2"><span class="value__n">3</span><h3 class="display value__t">Todo en casa</h3><p>Si lo cotizamos, lo producimos nosotros.</p></li>
-      <li class="value value--dark reveal" style="--i:3"><span class="value__n">4</span><h3 class="display value__t">Claridad</h3><p>Precios, plazos y alcances por escrito.</p></li>
-      <li class="value value--coral reveal" style="--i:4"><span class="value__n">5</span><h3 class="display value__t">Curiosidad</h3><p>Probamos formatos nuevos antes que el resto.</p></li>
+      <!-- EDITAR: valores. <br class="br-pc"> marca el corte de línea en PC -->
+      <li class="value value--coral reveal" style="--i:0"><span class="value__n" aria-hidden="true">01</span><h3 class="display value__t">Hacer y <br class="br-pc">no prometer</h3><p>Mostramos avances <br class="br-pc">y no discursos.</p></li>
+      <li class="value value--dark reveal" style="--i:1"><span class="value__n" aria-hidden="true">02</span><h3 class="display value__t">Velocidad <br class="br-pc">y efectividad</h3><p>La rapidez también <br class="br-pc">puede ser detallada.</p></li>
+      <li class="value value--line reveal" style="--i:2"><span class="value__n" aria-hidden="true">03</span><h3 class="display value__t">Estrategia y <br class="br-pc">creatividad</h3><p>Cada idea tiene una <br class="br-pc">razón para existir.</p></li>
+      <li class="value value--dark reveal" style="--i:3"><span class="value__n" aria-hidden="true">04</span><h3 class="display value__t">Claro <br class="br-pc">y directo</h3><p>Porque los resultados <br class="br-pc">hablan por nosotros.</p></li>
+      <li class="value value--coral value--invert reveal" style="--i:4"><span class="value__n" aria-hidden="true">05</span><h3 class="display value__t">Innovación <br class="br-pc">y originalidad</h3><p>Te mostramos algo <br class="br-pc">totalmente diferente.</p></li>
     </ul>
   </div>
 </section>
