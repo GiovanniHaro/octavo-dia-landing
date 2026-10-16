@@ -206,7 +206,7 @@ ul{margin:0;padding:0;list-style:none}
 /* Celular y tablet: tarjetas horizontales; número gigante girado a la izquierda (recortado) y texto a la derecha.
    Las medidas en cqi son % del ancho de la tarjeta (.values es el contenedor) */
 .values{display:grid;gap:1rem;container-type:inline-size;max-width:620px;margin-inline:auto}
-.value{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;min-height:35cqi;padding:4cqi 3cqi 4cqi 44cqi;overflow:hidden;border-radius:var(--radius-card);border:2px solid transparent;transition:transform var(--dur-base) var(--ease-out)}
+.value{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;min-height:35cqi;padding:4cqi 3cqi 4cqi 44cqi;overflow:hidden;border-radius:var(--radius-card);border:0;transition:transform var(--dur-base) var(--ease-out)}
 .value:hover{transform:translateY(-6px)}
 .value__n{position:absolute;left:15.5cqi;top:50%;transform:translate(-50%,-50%) rotate(-45deg);font:400 41cqi/.8 var(--font-display);white-space:nowrap;pointer-events:none}
 .value__t{position:relative;font-size:9.1cqi;line-height:.95;margin:0 0 2.2cqi;white-space:nowrap}
@@ -215,10 +215,9 @@ ul{margin:0;padding:0;list-style:none}
 .value--coral{background:var(--od-coral);color:var(--od-negro)}       /* texto negro: AA */
 .value--dark{background:var(--od-negro);color:var(--od-crudo)}
 .value--dark p{color:var(--od-texto-sec-oscuro)}
-.value--line{border-color:var(--od-negro)}
+.value--line{border:3px solid var(--od-negro)} /* solo la tarjeta 3 lleva borde */
 .value--dark .value__n{color:var(--od-crudo)}
 .value--dark p{color:var(--od-crudo)}
-.value--line{border-width:3px}
 
 /* =========================================================
    9. SERVICIOS (filas con barrido coral)
