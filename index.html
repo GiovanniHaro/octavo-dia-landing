@@ -102,6 +102,10 @@ ul{margin:0;padding:0;list-style:none}
 .hl{color:var(--od-coral)}
 .section-head{max-width:760px;margin-bottom:clamp(2rem,1rem + 3vw,3.5rem)}
 .section-head--about .br-pc{display:none} /* en celular el titular corre solo */
+/* Quiénes somos: proporciones tomadas del diseño de Giovanni */
+.section-head--about .eyebrow{margin-bottom:.2rem}
+.section-head--about .h2{font-size:min(9.07vw,var(--fs-h2));line-height:1.05;margin-bottom:.25em}
+.section-head--about .lead{font-size:clamp(.8125rem,3.15vw,1.0625rem);line-height:1.22;max-width:22em}
 
 /* Punto REC */
 .rec{display:inline-block;width:.75em;height:.75em;border-radius:50%;background:var(--od-coral);flex:none}
@@ -372,7 +376,9 @@ ul{margin:0;padding:0;list-style:none}
   .value p .br-pc{display:inline}
   .section-head--about{max-width:none}
   .section-head--about .br-pc{display:inline}
-  .section-head--about .lead{max-width:82ch}
+  .section-head--about .eyebrow{margin-bottom:1.15rem}
+  .section-head--about .h2{line-height:1.08;margin-bottom:.24em}
+  .section-head--about .lead{font-size:clamp(1rem,1.3vw,1.1875rem);line-height:1.14;max-width:55em}
   .value--line{border-width:3px}
   .plans{grid-template-columns:repeat(3,1fr)}
   .plans .plan:last-child{grid-column:auto}
