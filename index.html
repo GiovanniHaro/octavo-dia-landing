@@ -233,8 +233,8 @@ ul{margin:0;padding:0;list-style:none}
 .services{display:grid;gap:1rem}
 .service{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:1.25rem 1rem;border-block:3px solid var(--od-crudo);text-decoration:none;color:var(--od-crudo);transition:color var(--dur-base) var(--ease-out)}
 .service::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--od-coral);transform:scaleY(0);transform-origin:bottom;transition:transform var(--dur-base) var(--ease-out)}
-.service--coral,.service:hover,.service:focus-visible{color:var(--od-negro)}
-.service--coral::before,.service:hover::before,.service:focus-visible::before{transform:scaleY(1)}
+.service:hover,.service:focus-visible{color:var(--od-negro)}
+.service:hover::before,.service:focus-visible::before{transform:scaleY(1)}
 .service__name{font-size:clamp(1.75rem,8vw,2.5rem);line-height:1.08;margin:0 0 .6rem}
 .service__desc{margin:0;font-size:.9375rem;line-height:1.15}
 .svc .br-pc{display:none}
@@ -498,7 +498,7 @@ ul{margin:0;padding:0;list-style:none}
     </div>
     <div class="services">
       <!-- EDITAR: servicios. Cada tarjeta abre WhatsApp con su nombre; <br class="br-pc"> marca el corte en PC -->
-      <a class="service service--coral reveal" style="--i:0" href="#contacto" data-wa="servicio" data-wa-service="Diseño de páginas web"><h3 class="display service__name">Diseños de <br class="br-pc">páginas web</h3><p class="service__desc">Desarrollamos landing pages, <br class="br-pc">páginas e-commerce y responsive</p></a>
+      <a class="service reveal" style="--i:0" href="#contacto" data-wa="servicio" data-wa-service="Diseño de páginas web"><h3 class="display service__name">Diseños de <br class="br-pc">páginas web</h3><p class="service__desc">Desarrollamos landing pages, <br class="br-pc">páginas e-commerce y responsive</p></a>
       <a class="service reveal" style="--i:1" href="#contacto" data-wa="servicio" data-wa-service="Contenido audiovisual"><h3 class="display service__name">Contenido <br class="br-pc">audiovisual</h3><p class="service__desc">El nuevo refrán: Porque un video <br class="br-pc">vale más que 1000 imágenes</p></a>
       <a class="service reveal" style="--i:2" href="#contacto" data-wa="servicio" data-wa-service="Social media content"><h3 class="display service__name">Social media <br class="br-pc">content</h3><p class="service__desc">Comunicación clara, concisa y <br class="br-pc">eficaz a través de redes sociales</p></a>
       <a class="service reveal" style="--i:3" href="#contacto" data-wa="servicio" data-wa-service="Branding empresarial"><h3 class="display service__name">Branding <br class="br-pc">empresarial</h3><p class="service__desc">Naming, logotipos, identidad visual y <br class="br-pc">manuales de marca.</p></a>
