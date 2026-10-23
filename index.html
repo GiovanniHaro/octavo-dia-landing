@@ -281,7 +281,7 @@ ul{margin:0;padding:0;list-style:none}
 .client img{display:block;width:100%;height:100%;object-fit:contain;opacity:.45;transition:opacity var(--dur-base) var(--ease-out)}
 .client:hover img{opacity:.85}
 .client--empty{border:1px dashed rgb(243 237 227 / .15);border-radius:12px} /* EDITAR: espacio reservado para un logo */
-.cli{container-type:inline-size}
+.cli{container-type:inline-size;padding-inline:max(var(--gutter),9.9vw)} /* en celular, mismo margen que Planes */
 .cli .section-head{max-width:none;margin-bottom:0}
 .cli .eyebrow{margin-bottom:.5rem}
 .cli .h2{font-size:12.85cqi;line-height:1.055;margin-bottom:5.2cqi;white-space:nowrap}
@@ -337,6 +337,7 @@ ul{margin:0;padding:0;list-style:none}
    ========================================================= */
 @media (min-width:768px){
   .clients{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.5rem 2.5rem}
+  .cli{padding-inline:var(--gutter)}
   .cli .eyebrow{margin-bottom:1rem}
   .cli .h2{font-size:8.66cqi;line-height:1;margin-bottom:2.7cqi}
   .cli .br-m{display:none}
