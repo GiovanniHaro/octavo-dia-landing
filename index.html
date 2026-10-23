@@ -243,6 +243,7 @@ ul{margin:0;padding:0;list-style:none}
 .service__name{font-size:6.53cqi;line-height:1.08;margin:0 0 2cqi}
 .service__desc{margin:0;font-size:max(.625rem,2.45cqi);line-height:1.1}
 .service__desc .br-pc{display:none} /* en celular la descripción corre sola */
+.service--long .service__name{font-size:5.6cqi} /* "Posicionamiento" es la palabra más larga: se achica para no salirse del cuadro */
 .svc .h2 .br-pc,.pln .br-pc{display:none} /* en celular los planes usan sus propios cortes (br-m) */
 
 /* =========================================================
@@ -406,6 +407,7 @@ ul{margin:0;padding:0;list-style:none}
   .service{min-height:16.9cqi;padding:2cqi 1cqi 1.6cqi 2.6cqi;border-block-width:3px}
   .service__name{font-size:4.06cqi;line-height:1.08;margin-bottom:.6cqi}
   .service__desc{font-size:1.53cqi;line-height:.95;white-space:nowrap}
+  .service--long .service__name{font-size:3.5cqi}
   .svc .h2 .br-pc,.service__desc .br-pc,.pln .br-pc{display:inline}
   .footer .big8{width:min(50vw,800px);right:-12vw;top:-30%}
   .footer{padding-bottom:4rem}
@@ -519,7 +521,7 @@ ul{margin:0;padding:0;list-style:none}
       <a class="service reveal" style="--i:1" href="#contacto" data-wa="servicio" data-wa-service="Contenido audiovisual"><h3 class="display service__name">Contenido <br class="br-pc">audiovisual</h3><p class="service__desc">El nuevo refrán: Porque un video <br class="br-pc">vale más que 1000 imágenes</p></a>
       <a class="service reveal" style="--i:2" href="#contacto" data-wa="servicio" data-wa-service="Social media content"><h3 class="display service__name">Social media <br class="br-pc">content</h3><p class="service__desc">Comunicación clara, concisa y <br class="br-pc">eficaz a través de redes sociales</p></a>
       <a class="service reveal" style="--i:3" href="#contacto" data-wa="servicio" data-wa-service="Branding empresarial"><h3 class="display service__name">Branding <br class="br-pc">empresarial</h3><p class="service__desc">Naming, logotipos, identidad visual y <br class="br-pc">manuales de marca.</p></a>
-      <a class="service reveal" style="--i:4" href="#contacto" data-wa="servicio" data-wa-service="Posicionamiento web SEO"><h3 class="display service__name">Posicionamiento <br class="br-pc">web-SEO</h3><p class="service__desc">Posicionamiento a través de motores <br class="br-pc">de búsqueda (SEO)</p></a>
+      <a class="service service--long reveal" style="--i:4" href="#contacto" data-wa="servicio" data-wa-service="Posicionamiento web SEO"><h3 class="display service__name">Posicionamiento <br class="br-pc">web-SEO</h3><p class="service__desc">Posicionamiento a través de <br class="br-pc">motores de búsqueda (SEO)</p></a>
       <a class="service reveal" style="--i:5" href="#contacto" data-wa="servicio" data-wa-service="Segmentación estratégica"><h3 class="display service__name">Segmentación <br class="br-pc">estratégica</h3><p class="service__desc">Llegamos a las personas indicadas <br class="br-pc">en el momento indicado.</p></a>
     </div>
   </div>
