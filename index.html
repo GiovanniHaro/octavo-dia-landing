@@ -274,22 +274,13 @@ ul{margin:0;padding:0;list-style:none}
 .plan--dark .btn::before{background:var(--od-coral-hover)}
 
 /* =========================================================
-   11. CASOS / PRUEBA SOCIAL (espacios para contenido real)
+   11. NUESTROS CLIENTES (logos en blanco al 45%)
    ========================================================= */
-.cases{display:grid;gap:1rem}
-.case{position:relative;overflow:hidden;border-radius:var(--radius-card);aspect-ratio:4/5;background:var(--od-negro-2);text-decoration:none;color:var(--od-crudo)}
-.case__media{position:absolute;inset:0;transition:transform .8s var(--ease-out)}
-.case:hover .case__media{transform:scale(1.06)}
-/* Placeholders con luz cálida (como las referencias del manual). EDITAR: cambiar por <img loading="lazy"> */
-.case__media--a{background:radial-gradient(circle at 70% 25%,#f6b98a 0,#b8563c 12%,transparent 40%),#1e1a1b}
-.case__media--b{background:radial-gradient(circle at 35% 40%,#f7e6cf 0,#d9c2a3 25%,transparent 60%),#c9b89f}
-.case__media--c{background:radial-gradient(circle at 75% 20%,#ff5a60 0,#6b1f27 20%,transparent 45%),#2a2527}
-.case__info{position:absolute;left:1rem;right:1rem;bottom:1rem;padding:1rem;border-radius:16px;background:rgb(32 30 31 / .88)}
-.case__info strong{display:block;font:400 1.5rem/1 var(--font-display);text-transform:uppercase;margin-bottom:.35rem}
-.case__info span{font-size:.875rem;color:var(--od-texto-sec-oscuro)}
-.quote{margin:2.5rem 0 0;padding:2rem 1.5rem;border-radius:var(--radius-card);border:2px solid var(--od-negro-2)}
-.quote blockquote{margin:0 0 1rem;font:400 clamp(1.5rem,1.1rem + 1.6vw,2.5rem)/1.05 var(--font-display);text-transform:uppercase}
-.quote figcaption{color:var(--od-texto-sec-oscuro)}
+.clients{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0;padding:0;list-style:none}
+.client{aspect-ratio:3/2;padding:10% 8%}
+.client img{display:block;width:100%;height:100%;object-fit:contain;opacity:.45;transition:opacity var(--dur-base) var(--ease-out)}
+.client:hover img{opacity:.85}
+.client--empty{border:1px dashed rgb(243 237 227 / .15);border-radius:12px} /* EDITAR: espacio reservado para un logo */
 
 /* =========================================================
    13. CTA FINAL + FORMULARIO (abre WhatsApp, no guarda datos)
@@ -341,7 +332,7 @@ ul{margin:0;padding:0;list-style:none}
    17. TABLET ≥ 768 px
    ========================================================= */
 @media (min-width:768px){
-  .cases{grid-template-columns:repeat(3,1fr)}
+  .clients{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.5rem 2.5rem}
   .footer__grid{grid-template-columns:2fr 1fr 1fr}
   .form{padding:2rem;grid-template-columns:1fr 1fr}
   .form .field--full,.form .btn,.form .form__note{grid-column:1 / -1}
@@ -432,7 +423,7 @@ ul{margin:0;padding:0;list-style:none}
     <nav class="nav" aria-label="Principal">
       <a href="#servicios">Servicios</a>
       <a href="#planes">Planes</a>
-      <a href="#casos">Casos</a>
+      <a href="#clientes">Clientes</a>
       <a href="#contacto">Escríbenos</a>
     </nav>
     <a class="btn btn--primary" href="#contacto" data-wa="header">Escríbenos</a>
@@ -561,24 +552,27 @@ ul{margin:0;padding:0;list-style:none}
   </div>
 </section>
 
-<!-- ================= 5. PRUEBA SOCIAL: EDITAR con casos y testimonios REALES ================= -->
-<section class="section section--dark" id="casos" aria-labelledby="cases-title">
+<!-- ================= 5. NUESTROS CLIENTES ================= -->
+<section class="section section--dark" id="clientes" aria-labelledby="clients-title">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow reveal"><span class="rec" aria-hidden="true"></span> Casos</p>
-      <h2 class="display h2 reveal" id="cases-title" style="--i:1">Avances,<br>no discursos.</h2>
+      <p class="eyebrow reveal"><span class="rec" aria-hidden="true"></span> Nuestros clientes</p>
+      <h2 class="display h2 reveal" id="clients-title" style="--i:1">Ellos confiaron<br>en nosotros.</h2>
     </div>
-    <div class="cases">
-      <!-- EDITAR: reemplazar .case__media por <img class="case__media" src="..." alt="..." loading="lazy" width="800" height="1000" style="object-fit:cover"> -->
-      <a class="case reveal" href="#" style="--i:0"><div class="case__media case__media--a" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
-      <a class="case reveal" href="#" style="--i:1"><div class="case__media case__media--b" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
-      <a class="case reveal" href="#" style="--i:2"><div class="case__media case__media--c" role="img" aria-label="[Foto real del proyecto]"></div><div class="case__info"><strong>[Cliente real]</strong><span>[Servicio · resultado real]</span></div></a>
-    </div>
-    <!-- EDITAR: testimonio real con autorización del cliente, o borrar este bloque -->
-    <figure class="quote reveal">
-      <blockquote>“[Testimonio real del cliente]”</blockquote>
-      <figcaption>[Nombre Apellido] · [Cargo] · [Empresa]</figcaption>
-    </figure>
+    <!-- EDITAR: cada logo va en blanco (SVG con textos convertidos a contornos) dentro de /logos. Reemplazar un espacio vacío por:
+         <li class="client reveal"><img src="logos/archivo.svg" alt="Nombre del cliente" loading="lazy"></li> -->
+    <ul class="clients">
+      <li class="client reveal"><img src="logos/clinica-la-luz.svg" alt="Clínica La Luz" width="623" height="201" loading="lazy"></li>
+      <li class="client reveal"><img src="logos/the-black-house.svg" alt="The Black House Restobar" width="319" height="374" loading="lazy"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client client--empty" aria-hidden="true"></li>
+    </ul>
   </div>
 </section>
 
