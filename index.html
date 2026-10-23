@@ -281,6 +281,10 @@ ul{margin:0;padding:0;list-style:none}
 .client img{display:block;width:100%;height:100%;object-fit:contain;opacity:.45;transition:opacity var(--dur-base) var(--ease-out)}
 .client:hover img{opacity:.85}
 .client--empty{border:1px dashed rgb(243 237 227 / .15);border-radius:12px} /* EDITAR: espacio reservado para un logo */
+.cli{container-type:inline-size}
+.cli .section-head{max-width:none;margin-bottom:0}
+.cli .eyebrow{margin-bottom:.5rem}
+.cli .h2{font-size:12.85cqi;line-height:1.055;margin-bottom:5.2cqi;white-space:nowrap}
 
 /* =========================================================
    13. CTA FINAL + FORMULARIO (abre WhatsApp, no guarda datos)
@@ -333,6 +337,9 @@ ul{margin:0;padding:0;list-style:none}
    ========================================================= */
 @media (min-width:768px){
   .clients{grid-template-columns:repeat(5,minmax(0,1fr));gap:1.5rem 2.5rem}
+  .cli .eyebrow{margin-bottom:1rem}
+  .cli .h2{font-size:8.66cqi;line-height:1;margin-bottom:2.7cqi}
+  .cli .br-m{display:none}
   .footer__grid{grid-template-columns:2fr 1fr 1fr}
   .form{padding:2rem;grid-template-columns:1fr 1fr}
   .form .field--full,.form .btn,.form .form__note{grid-column:1 / -1}
@@ -554,20 +561,20 @@ ul{margin:0;padding:0;list-style:none}
 
 <!-- ================= 5. NUESTROS CLIENTES ================= -->
 <section class="section section--dark" id="clientes" aria-labelledby="clients-title">
-  <div class="container">
+  <div class="container cli">
     <div class="section-head">
       <p class="eyebrow reveal"><span class="rec" aria-hidden="true"></span> Nuestros clientes</p>
-      <h2 class="display h2 reveal" id="clients-title" style="--i:1">Ellos confiaron<br>en nosotros.</h2>
+      <h2 class="display h2 reveal" id="clients-title" style="--i:1">Ellos confiaron <br class="br-m">en nosotros</h2>
     </div>
     <!-- EDITAR: cada logo va en blanco (SVG con textos convertidos a contornos) dentro de /logos. Reemplazar un espacio vacío por:
          <li class="client reveal"><img src="logos/archivo.svg" alt="Nombre del cliente" loading="lazy"></li> -->
     <ul class="clients">
       <li class="client reveal"><img src="logos/clinica-la-luz.svg" alt="Clínica La Luz" width="623" height="201" loading="lazy"></li>
       <li class="client reveal"><img src="logos/the-black-house.svg" alt="The Black House Restobar" width="319" height="374" loading="lazy"></li>
-      <li class="client client--empty" aria-hidden="true"></li>
-      <li class="client client--empty" aria-hidden="true"></li>
-      <li class="client client--empty" aria-hidden="true"></li>
-      <li class="client client--empty" aria-hidden="true"></li>
+      <li class="client reveal"><img src="logos/corredor-montano.svg" alt="Corredor Bosque Montano" width="482" height="359" loading="lazy"></li>
+      <li class="client reveal"><img src="logos/la-herencia.svg" alt="La Herencia" width="550" height="299" loading="lazy"></li>
+      <li class="client reveal"><img src="logos/peru-global.svg" alt="Perú Global Trading" width="570" height="325" loading="lazy"></li>
+      <li class="client reveal"><img src="logos/ser-lucatme.svg" alt="Ser Lucatme" width="463" height="319" loading="lazy"></li>
       <li class="client client--empty" aria-hidden="true"></li>
       <li class="client client--empty" aria-hidden="true"></li>
       <li class="client client--empty" aria-hidden="true"></li>
