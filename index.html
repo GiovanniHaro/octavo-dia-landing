@@ -7,6 +7,8 @@
 <title>Octavo Día · Agencia creativa en Lima | Diseño, video, redes y web</title>
 <meta name="description" content="Agencia creativa en Lima con equipo propio: branding, diseño gráfico, producción audiovisual, edición de video, community management y diseño web. Cotiza por WhatsApp.">
 <meta name="theme-color" content="#201E1F">
+<meta name="color-scheme" content="only light"> <!-- los colores de marca no se invierten en modo oscuro -->
+<meta name="darkreader-lock"> <!-- bloquea el "modo noche" de Brave y Dark Reader -->
 <!-- EDITAR: imagen para compartir en redes (1200×630) -->
 <meta property="og:title" content="Octavo Día · Agencia creativa en Lima">
 <meta property="og:description" content="Siete días no te alcanzan. Tu marca necesita un octavo día. Hacemos que tu marca hable, el mercado escuche y tú crezcas.">
@@ -76,7 +78,7 @@
    2. BASE
    ========================================================= */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) - 1px)}
+html{color-scheme:only light;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) - 1px)}
 body{margin:0;background:var(--od-crudo);color:var(--od-negro);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
