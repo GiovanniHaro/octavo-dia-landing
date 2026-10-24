@@ -167,7 +167,7 @@ ul{margin:0;padding:0;list-style:none}
 .header .btn{min-height:44px;padding:.6em 1.1em;font-size:.9375rem}
 /* Celular: el menú y el botón Escríbenos viven en la pantalla de menú */
 .header .nav,.header .btn{display:none}
-.burger{position:relative;z-index:2;display:grid;place-items:center;width:56px;height:56px;padding:0;border:0;border-radius:50%;background:var(--od-coral);color:var(--od-negro);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out),background-color .4s,color .4s}
+.burger{position:fixed;top:calc((var(--header-h) - 56px) / 2);right:var(--gutter);z-index:60;display:grid;place-items:center;width:56px;height:56px;padding:0;border:0;border-radius:50%;background:var(--od-coral);color:var(--od-negro);cursor:pointer;transition:transform var(--dur-fast) var(--ease-out),background-color .4s,color .4s}
 .menu-open .burger{background:var(--od-negro);color:var(--od-coral)}
 .burger:active{transform:scale(.94)}
 .burger span{position:absolute;left:17px;right:17px;height:2.5px;border-radius:2px;background:currentColor;transition:transform .45s var(--ease-out),opacity .2s}
@@ -176,12 +176,9 @@ ul{margin:0;padding:0;list-style:none}
 .menu-open .burger span:nth-child(1){transform:rotate(45deg)}
 .menu-open .burger span:nth-child(2){opacity:0;transform:scaleX(0)}
 .menu-open .burger span:nth-child(3){transform:rotate(-45deg)}
-.menu{position:fixed;inset:0;z-index:45;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;padding:calc(var(--header-h) + 1rem) max(var(--gutter),9.9vw) 2rem;background:var(--od-coral);visibility:hidden;clip-path:circle(0 at var(--mx,90%) var(--my,40px));transition:clip-path .6s cubic-bezier(.65,0,.35,1),visibility 0s .6s}
+.menu{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;padding:calc(var(--header-h) + 1rem) max(var(--gutter),9.9vw) 2rem;background:var(--od-coral);visibility:hidden;clip-path:circle(0 at var(--mx,90%) var(--my,40px));transition:clip-path .6s cubic-bezier(.65,0,.35,1),visibility 0s .6s}
 .menu-open .menu{visibility:visible;clip-path:circle(150% at var(--mx,90%) var(--my,40px));transition:clip-path .7s cubic-bezier(.65,0,.35,1),visibility 0s}
 .menu-open{overflow:hidden}
-.menu-open .header{background:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-.header .logo{transition:opacity .3s}
-.menu-open .header .logo{opacity:0;visibility:hidden}
 .menu__list{display:grid;width:100%;max-width:340px;margin:0;padding:0;list-style:none;text-align:center}
 .menu__list li+li{border-top:1px solid rgb(32 30 31 / .3)}
 .menu__list a{display:block;padding:1.15rem 0}
@@ -482,11 +479,11 @@ ul{margin:0;padding:0;list-style:none}
       <a href="#contacto">Escríbenos</a>
     </nav>
     <a class="btn btn--primary" href="#contacto" data-wa="header">Escríbenos</a>
-    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- Menú de celular (pantalla completa) -->
+<!-- Menú de celular: botón (fuera del header para quedar encima del círculo) y pantalla completa -->
+<button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 <div class="menu" id="menu" aria-label="Menú">
   <ul class="menu__list">
     <li style="--d:0"><a href="#nosotros">Quiénes somos</a></li>
