@@ -491,7 +491,7 @@ ul{margin:0;padding:0;list-style:none}
     <li style="--d:2"><a href="#planes">Planes</a></li>
     <li style="--d:3"><a href="#clientes">Clientes</a></li>
   </ul>
-  <a class="menu__cta" href="#contacto" data-wa="menu" style="--d:4">Escríbenos</a>
+  <a class="menu__cta" href="#contacto" style="--d:4">Escríbenos</a>
 </div>
 
 <main id="main">
@@ -802,7 +802,7 @@ document.querySelectorAll('.section:not(.footer)').forEach(s=>s.insertAdjacentHT
     };
     burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
     // Al elegir una opción: salta a la sección detrás del menú y el círculo se cierra sobre la opción elegida
-    $$('.menu__list a', menu).forEach(a => a.addEventListener('click', (e) => {
+    $$('.menu__list a, .menu__cta', menu).forEach(a => a.addEventListener('click', (e) => {
       const target = $(a.getAttribute('href'));
       if (!target) return setMenu(false);
       e.preventDefault();
@@ -815,7 +815,6 @@ document.querySelectorAll('.section:not(.footer)').forEach(s=>s.insertAdjacentHT
       history.replaceState(null, '', a.getAttribute('href'));
       requestAnimationFrame(() => setMenu(false));
     }));
-    $('.menu__cta', menu).addEventListener('click', () => setMenu(false));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
     window.matchMedia('(min-width:1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
   }
