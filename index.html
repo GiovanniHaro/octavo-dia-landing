@@ -259,8 +259,9 @@ ul{margin:0;padding:0;list-style:none}
 .service{position:relative;isolation:isolate;display:flex;flex-direction:column;min-height:27cqi;padding:3.5cqi 1cqi 3cqi 4.2cqi;border-block:2px solid var(--od-crudo);text-decoration:none;color:var(--od-crudo);transition:color var(--dur-base) var(--ease-out)}
 .service:nth-child(3),.service:nth-child(6){order:1} /* en celular "Social media" baja a la tercera fila */
 .service::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--od-coral);transform:scaleY(0);transform-origin:bottom;transition:transform var(--dur-base) var(--ease-out)}
-.service:hover,.service:focus-visible{color:var(--od-negro)}
-.service:hover::before,.service:focus-visible::before{transform:scaleY(1)}
+.service{cursor:default}
+.service:hover{color:var(--od-negro)}
+.service:hover::before{transform:scaleY(1)}
 .service__name{font-size:6.53cqi;line-height:1.08;margin:0 0 2cqi}
 .service__desc{margin:0;font-size:max(.625rem,2.45cqi);line-height:1.1}
 .service__desc .br-pc{display:none} /* en celular la descripción corre sola */
@@ -566,12 +567,12 @@ ul{margin:0;padding:0;list-style:none}
     </div>
     <div class="services">
       <!-- EDITAR: servicios. Cada tarjeta abre WhatsApp con su nombre; <br class="br-pc"> marca el corte en PC -->
-      <a class="service reveal" style="--i:0" href="#contacto" data-wa="servicio" data-wa-service="Diseño de páginas web"><h3 class="display service__name">Diseños de <br class="br-pc">páginas web</h3><p class="service__desc">Desarrollamos landing pages, <br class="br-pc">páginas e-commerce y responsive</p></a>
-      <a class="service reveal" style="--i:1" href="#contacto" data-wa="servicio" data-wa-service="Contenido audiovisual"><h3 class="display service__name">Contenido <br class="br-pc">audiovisual</h3><p class="service__desc">El nuevo refrán: Porque un video <br class="br-pc">vale más que 1000 imágenes</p></a>
-      <a class="service reveal" style="--i:2" href="#contacto" data-wa="servicio" data-wa-service="Social media content"><h3 class="display service__name">Social media <br class="br-pc">content</h3><p class="service__desc">Comunicación clara, concisa y <br class="br-pc">eficaz a través de redes sociales</p></a>
-      <a class="service reveal" style="--i:3" href="#contacto" data-wa="servicio" data-wa-service="Branding empresarial"><h3 class="display service__name">Branding <br class="br-pc">empresarial</h3><p class="service__desc">Naming, logotipos, identidad visual y <br class="br-pc">manuales de marca.</p></a>
-      <a class="service service--long reveal" style="--i:4" href="#contacto" data-wa="servicio" data-wa-service="Posicionamiento web SEO"><h3 class="display service__name">Posicionamiento <br class="br-pc">web-SEO</h3><p class="service__desc">Posicionamiento a través de <br class="br-pc">motores de búsqueda (SEO)</p></a>
-      <a class="service reveal" style="--i:5" href="#contacto" data-wa="servicio" data-wa-service="Segmentación estratégica"><h3 class="display service__name">Segmentación <br class="br-pc">estratégica</h3><p class="service__desc">Llegamos a las personas indicadas <br class="br-pc">en el momento indicado.</p></a>
+      <div class="service reveal" style="--i:0"><h3 class="display service__name">Diseños de <br class="br-pc">páginas web</h3><p class="service__desc">Desarrollamos landing pages, <br class="br-pc">páginas e-commerce y responsive</p></div>
+      <div class="service reveal" style="--i:1"><h3 class="display service__name">Contenido <br class="br-pc">audiovisual</h3><p class="service__desc">El nuevo refrán: Porque un video <br class="br-pc">vale más que 1000 imágenes</p></div>
+      <div class="service reveal" style="--i:2"><h3 class="display service__name">Social media <br class="br-pc">content</h3><p class="service__desc">Comunicación clara, concisa y <br class="br-pc">eficaz a través de redes sociales</p></div>
+      <div class="service reveal" style="--i:3"><h3 class="display service__name">Branding <br class="br-pc">empresarial</h3><p class="service__desc">Naming, logotipos, identidad visual y <br class="br-pc">manuales de marca.</p></div>
+      <div class="service service--long reveal" style="--i:4"><h3 class="display service__name">Posicionamiento <br class="br-pc">web-SEO</h3><p class="service__desc">Posicionamiento a través de <br class="br-pc">motores de búsqueda (SEO)</p></div>
+      <div class="service reveal" style="--i:5"><h3 class="display service__name">Segmentación <br class="br-pc">estratégica</h3><p class="service__desc">Llegamos a las personas indicadas <br class="br-pc">en el momento indicado.</p></div>
     </div>
   </div>
 </section>
