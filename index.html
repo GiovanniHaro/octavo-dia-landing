@@ -302,7 +302,8 @@ ul{margin:0;padding:0;list-style:none}
 /* =========================================================
    14. FOOTER
    ========================================================= */
-.footer{padding-block:1.75rem 6.5rem}
+.footer{padding-block:3.5rem}
+.footer .container{padding-inline:max(var(--gutter),9.9vw)} /* en celular, mismo margen que Planes y Clientes */
 .footer__top{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 1rem}
 .footer__top .logo{justify-self:start}
 .footer__info{grid-column:1 / -1;grid-row:2}
@@ -416,6 +417,7 @@ ul{margin:0;padding:0;list-style:none}
   .service--long .service__name{font-size:3.5cqi}
   .svc .h2 .br-pc,.service__desc .br-pc,.pln .br-pc{display:inline}
   .footer{padding-block:2.5rem}
+  .footer .container{padding-inline:var(--gutter)}
   .footer .logo{font-size:32px}
   .sticky-cta{left:auto;right:1.5rem;bottom:1.5rem}
   .sticky-cta .btn{width:auto;border-radius:var(--radius-pill)}
