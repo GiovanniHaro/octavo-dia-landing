@@ -158,8 +158,8 @@ ul{margin:0;padding:0;list-style:none}
 .header.is-scrolled{background:rgb(32 30 31 / .94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--od-negro-2)}
 /* Menú siempre visible: el header nunca se oculta al hacer scroll */
 .header__inner{height:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;align-content:center;column-gap:.75rem}
-.nav{grid-column:1 / -1;grid-row:2;display:flex;justify-content:space-between;margin-top:.5rem}
-.nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:var(--od-texto-sec-oscuro);text-decoration:none;font-weight:500;font-size:.9375rem;transition:color var(--dur-fast)}
+.nav{grid-column:1 / -1;grid-row:2;display:flex;justify-content:space-between;gap:.5rem;margin-top:.5rem}
+.nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;white-space:nowrap;color:var(--od-texto-sec-oscuro);text-decoration:none;font-weight:500;font-size:clamp(.6875rem,3.3vw,.9375rem);transition:color var(--dur-fast)}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:.35rem;height:2px;background:var(--od-coral);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-base) var(--ease-out)}
 .nav a:hover,.nav a.is-active{color:var(--od-crudo)}
 .nav a:hover::after,.nav a.is-active::after{transform:scaleX(1);transform-origin:left}
@@ -447,6 +447,7 @@ ul{margin:0;padding:0;list-style:none}
       <span class="logo__desc" aria-hidden="true">Agencia creativa</span>
     </a>
     <nav class="nav" aria-label="Principal">
+      <a href="#nosotros">Quiénes somos</a>
       <a href="#servicios">Servicios</a>
       <a href="#planes">Planes</a>
       <a href="#clientes">Clientes</a>
@@ -788,11 +789,11 @@ ul{margin:0;padding:0;list-style:none}
       entries.forEach(en => { if (en.isIntersecting) setActive(en.target.id); });
     }, { rootMargin: '-35% 0px -60% 0px' });
     spyTargets.forEach(sec => spy.observe(sec));
-    // Arriba del todo (hero) o en contacto: ninguna opción marcada
+    // Arriba del todo (hero) o en el formulario: ninguna opción marcada
     const clear = new IntersectionObserver((entries) => {
       entries.forEach(en => { if (en.isIntersecting) setActive(''); });
     }, { rootMargin: '-35% 0px -60% 0px' });
-    [$('#inicio'), $('#nosotros'), $('#contacto')].filter(Boolean).forEach(sec => clear.observe(sec));
+    [$('#inicio'), $('#contacto')].filter(Boolean).forEach(sec => clear.observe(sec));
   }
 
 
