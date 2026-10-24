@@ -92,7 +92,7 @@ ul{margin:0;padding:0;list-style:none}
 .section--dark{background:var(--od-negro);color:var(--od-crudo)}
 .section--coral{background:var(--od-coral);color:var(--od-negro)}
 /* Marca de agua 8D: fija en pantalla; cada sección la recorta y la tiñe con su propio tono */
-.section:not(.hero){clip-path:inset(0)}
+.section{clip-path:inset(0)}
 .wm{position:fixed;z-index:-1;top:50%;right:0;width:clamp(300px,58vw,105vh);transform:translate(26%,-50%);color:currentColor;opacity:.08;pointer-events:none}
 .section--dark .wm{opacity:.06}
 .wm svg{display:block;width:100%;height:auto;aspect-ratio:994/991;fill:currentColor}
@@ -216,11 +216,6 @@ ul{margin:0;padding:0;list-style:none}
    Mide 3 veces el tamaño del titular en celular (4,2 en tablet, máx. 56vw) para no tocar "NO TE ALCANZAN"; un 32 % queda fuera por la derecha (o más, para dejar siempre 16 px libres junto a "NECESITA UN") y su borde inferior coincide con la línea "OCTAVO DÍA": queda al lado de TU MARCA / NECESITA UN / OCTAVO DÍA.
    El header opaco lo recorta arriba. */
 .hero__grid{position:relative}
-.hero__symbol{--sym:min(56vw,3 * var(--fs-title));position:absolute;z-index:0;left:max(calc(100vw - .68 * var(--sym)),calc(var(--gutter) + 4.56 * var(--fs-title) + 16px));top:calc(2.3125rem + 4.85 * var(--fs-title) - var(--sym));width:var(--sym);color:var(--od-coral);will-change:transform;pointer-events:none}
-.hero__symbol svg{display:block;width:100%;height:auto;aspect-ratio:994/991;fill:currentColor}
-@media (min-width:680px){.hero__symbol{--sym:min(56vw,4.2 * var(--fs-title))}} /* tablet: más grande, sin tocar "NO TE ALCANZAN" */
-.js .hero__symbol svg{opacity:0;transform:rotate(-12deg) scale(.85);transition:opacity .9s var(--ease-out) .45s,transform 1.3s var(--ease-out) .45s}
-.js.is-loaded .hero__symbol svg{opacity:1;transform:none}
 
 /* =========================================================
    7. MARQUESINA DE SERVICIOS
@@ -367,7 +362,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .reveal,.js .hero__title .line>span,.js .hero__symbol svg{opacity:1;transform:none}
+  .js .reveal,.js .hero__title .line>span{opacity:1;transform:none}
 }
 
 /* =========================================================
@@ -401,7 +396,6 @@ ul{margin:0;padding:0;list-style:none}
   .hero__title{font-size:min(var(--fs-hero),6.2vw)}
   @supports (width:1cqi){.hero__title{font-size:15.5cqi}} /* "NO TE ALCANZAN" ocupa todo el ancho de la columna */
   .hero__lead{max-width:46ch}
-  .hero__symbol{position:static;justify-self:end;width:100%;top:auto;left:auto}
   /* Valores en PC: tarjetas verticales con el número gigante girado que se sale por arriba; título y texto centrados abajo */
   .values{grid-template-columns:repeat(5,1fr);grid-auto-rows:auto;max-width:none;container-type:normal}
   .value--dark .value__n{color:#fff}
@@ -518,7 +512,6 @@ ul{margin:0;padding:0;list-style:none}
       <a class="btn btn--ghost" href="#nosotros">Te decimos cómo hacerlo</a>
     </div>
   </div>
-    <div class="hero__symbol" data-parallax="0.05" aria-hidden="true"><svg><use href="#od-8d"/></svg></div>
   </div>
 </section>
 
@@ -710,8 +703,8 @@ ul{margin:0;padding:0;list-style:none}
 <a class="wa-float" href="#contacto" data-wa="flotante" aria-label="Escríbenos por WhatsApp"><svg class="wa-float__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round" d="M12 2.9a9.1 9.1 0 0 0-7.8 13.8L2.9 21.1l4.5-1.2A9.1 9.1 0 1 0 12 2.9Z"/><path fill="#fff" d="M16.9 14.3c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3.1 3.1 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12.2 12.2 0 0 0 4.7 4.2c1.7.7 2.5.8 3.3.6a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg><span class="wa-float__label">Abrir chat<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 4l18 8-18 8 3-8-3-8Z"/><path d="M6 12h6"/></svg></span></a>
 
 <script>
-/* Marca de agua 8D en cada sección (menos el inicio, que ya tiene su 8D coral) */
-document.querySelectorAll('.section:not(.hero)').forEach(s=>s.insertAdjacentHTML('afterbegin','<div class="wm" aria-hidden="true"><svg><use href="#od-8d"/></svg></div>'));
+/* Marca de agua 8D en cada sección */
+document.querySelectorAll('.section').forEach(s=>s.insertAdjacentHTML('afterbegin','<div class="wm" aria-hidden="true"><svg><use href="#od-8d"/></svg></div>'));
 
 /* =========================================================
    OCTAVO DÍA · JavaScript (sin librerías)
