@@ -172,8 +172,6 @@ ul{margin:0;padding:0;list-style:none}
 .hero{min-height:100svh;display:flex;align-items:center;padding-top:calc(var(--header-h) + 2rem);padding-bottom:3rem}
 .hero__grid{position:relative;z-index:1;display:grid;gap:2.5rem;align-items:center}
 .hero__content{position:relative;z-index:2}
-.hero__rec{display:flex;width:max-content;align-items:center;gap:.6em;margin-bottom:1.5rem;font:700 .8125rem/1 var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--od-crudo)}
-.hero__rec time{font-variant-numeric:tabular-nums;color:var(--od-texto-sec-oscuro)}
 /* Celular y tablet: el titular se achica lo justo para que "NO TE ALCANZAN" (6 em) entre sin cortarse */
 .hero{--fs-title:min(var(--fs-hero),calc((100vw - 2 * var(--gutter)) / 6.1))}
 .hero__title{font-size:var(--fs-title);margin-bottom:1.5rem}
@@ -464,7 +462,6 @@ ul{margin:0;padding:0;list-style:none}
 <section class="section section--dark hero" id="inicio" aria-labelledby="hero-title">
   <div class="container hero__grid">
   <div class="hero__content">
-    <p class="hero__rec"><span class="rec rec--live" aria-hidden="true"></span> REC <time id="rec-timer" aria-hidden="true">00:00:00</time><span class="sr-only">Agencia creativa en Lima</span></p>
     <!-- EDITAR: titular principal (una línea por <span class="line">) -->
     <h1 class="display hero__title" id="hero-title">
       <span class="line"><span style="--i:0">Siete días</span></span>
@@ -740,18 +737,6 @@ ul{margin:0;padding:0;list-style:none}
 
   // ---------- Entrada del hero ----------
   requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded')));
-
-  // ---------- Contador REC (00:00:00) ----------
-  const timer = $('#rec-timer');
-  if (timer) {
-    const start = Date.now();
-    const pad = n => String(n).padStart(2, '0');
-    const tick = () => {
-      const s = Math.floor((Date.now() - start) / 1000);
-      timer.textContent = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
-    };
-    setInterval(tick, 1000);
-  }
 
   // ---------- Aparición al hacer scroll ----------
   const reveals = $$('.reveal');
