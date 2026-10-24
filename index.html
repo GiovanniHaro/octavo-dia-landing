@@ -323,9 +323,13 @@ ul{margin:0;padding:0;list-style:none}
 /* =========================================================
    15. CTA FIJO (barra en móvil, píldora flotante en escritorio)
    ========================================================= */
-.wa-float{position:fixed;right:1rem;bottom:1rem;z-index:40;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#25D366;box-shadow:0 6px 20px rgb(0 0 0 / .28);transition:transform var(--dur-fast) var(--ease-out)}
-.wa-float:hover{transform:scale(1.08)}
-.wa-float svg{width:30px;height:30px}
+.wa-float{position:fixed;right:14px;bottom:14px;z-index:40;display:flex;align-items:center;justify-content:center;min-width:60px;height:60px;padding:0 12px;border-radius:var(--radius-pill);background:#25D366;color:#fff;text-decoration:none;box-shadow:0 6px 20px rgb(0 0 0 / .28);transition:padding var(--dur-base) var(--ease-out)}
+.wa-float__icon{width:36px;height:36px;flex:none;transition:width var(--dur-base) var(--ease-out),opacity var(--dur-fast)}
+.wa-float__label{display:flex;align-items:center;gap:.9rem;max-width:0;overflow:hidden;white-space:nowrap;opacity:0;font:700 1.125rem/1 var(--font-body);transition:max-width var(--dur-base) var(--ease-out),opacity var(--dur-fast)}
+.wa-float__label svg{width:28px;height:28px;flex:none}
+.wa-float:hover,.wa-float:focus-visible{padding:0 1.25rem 0 1.5rem}
+.wa-float:hover .wa-float__icon,.wa-float:focus-visible .wa-float__icon{width:0;opacity:0}
+.wa-float:hover .wa-float__label,.wa-float:focus-visible .wa-float__label{max-width:220px;opacity:1}
 
 /* =========================================================
    16. ANIMACIONES DE ENTRADA (solo si hay JS)
@@ -419,7 +423,7 @@ ul{margin:0;padding:0;list-style:none}
   .footer{padding-block:2.5rem}
   .footer .container{padding-inline:var(--gutter)}
   .footer .logo{font-size:32px}
-  .wa-float{right:1.5rem;bottom:1.5rem;width:60px;height:60px}
+  .wa-float{right:24px;bottom:24px}
 }
 @media (min-width:1200px){
   .footer{padding-block:3.5rem 3rem}
@@ -667,7 +671,7 @@ ul{margin:0;padding:0;list-style:none}
 </footer>
 
 <!-- WhatsApp flotante -->
-<a class="wa-float" href="#contacto" data-wa="flotante" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round" d="M12 2.9a9.1 9.1 0 0 0-7.8 13.8L2.9 21.1l4.5-1.2A9.1 9.1 0 1 0 12 2.9Z"/><path fill="#fff" d="M16.9 14.3c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3.1 3.1 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12.2 12.2 0 0 0 4.7 4.2c1.7.7 2.5.8 3.3.6a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg></a>
+<a class="wa-float" href="#contacto" data-wa="flotante" aria-label="Escríbenos por WhatsApp"><svg class="wa-float__icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round" d="M12 2.9a9.1 9.1 0 0 0-7.8 13.8L2.9 21.1l4.5-1.2A9.1 9.1 0 1 0 12 2.9Z"/><path fill="#fff" d="M16.9 14.3c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.6.1a7.3 7.3 0 0 1-3.6-3.2c-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3.1 3.1 0 0 0-1 2.3 5.4 5.4 0 0 0 1.1 2.8 12.2 12.2 0 0 0 4.7 4.2c1.7.7 2.5.8 3.3.6a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3Z"/></svg><span class="wa-float__label">Abrir chat<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M3 4l18 8-18 8 3-8-3-8Z"/><path d="M6 12h6"/></svg></span></a>
 
 <script>
 /* =========================================================
